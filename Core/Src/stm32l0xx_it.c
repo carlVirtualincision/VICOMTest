@@ -171,8 +171,7 @@ void LPUART1_IRQHandler(void)
     } else if (currentState == crchMode && !(data & 0x100)) {
       // this is a crcl value with correct address bit
         crch = data & 0xff;
-        if()
-        currentState = payload;
+        currentState = payloadMode;
     } else {
       currentState = addressMode;
     }
