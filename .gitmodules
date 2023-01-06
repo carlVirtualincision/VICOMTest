@@ -1,0 +1,3 @@
+[submodule "mcu-bsp"]
+	path = mcu-bsp
+	url = https://git.virtualincision.net/scm/a4sw/mcu-bsp.git
