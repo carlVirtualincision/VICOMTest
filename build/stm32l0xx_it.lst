@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -24,111 +24,106 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
   21              		.thumb_func
   22              		.fpu softvfp
   24              	NMI_Handler:
-  25              	.LFB40:
-  26              		.file 1 "Core/Src/stm32l0xx_it.c"
-   1:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN Header */
-   2:Core/Src/stm32l0xx_it.c **** /**
-   3:Core/Src/stm32l0xx_it.c ****   ******************************************************************************
-   4:Core/Src/stm32l0xx_it.c ****   * @file    stm32l0xx_it.c
-   5:Core/Src/stm32l0xx_it.c ****   * @brief   Interrupt Service Routines.
-   6:Core/Src/stm32l0xx_it.c ****   ******************************************************************************
-   7:Core/Src/stm32l0xx_it.c ****   * @attention
-   8:Core/Src/stm32l0xx_it.c ****   *
-   9:Core/Src/stm32l0xx_it.c ****   * Copyright (c) 2022 STMicroelectronics.
-  10:Core/Src/stm32l0xx_it.c ****   * All rights reserved.
-  11:Core/Src/stm32l0xx_it.c ****   *
-  12:Core/Src/stm32l0xx_it.c ****   * This software is licensed under terms that can be found in the LICENSE file
-  13:Core/Src/stm32l0xx_it.c ****   * in the root directory of this software component.
-  14:Core/Src/stm32l0xx_it.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
-  15:Core/Src/stm32l0xx_it.c ****   *
-  16:Core/Src/stm32l0xx_it.c ****   ******************************************************************************
-  17:Core/Src/stm32l0xx_it.c ****   */
-  18:Core/Src/stm32l0xx_it.c **** /* USER CODE END Header */
-  19:Core/Src/stm32l0xx_it.c **** 
-  20:Core/Src/stm32l0xx_it.c **** /* Includes ------------------------------------------------------------------*/
-  21:Core/Src/stm32l0xx_it.c **** #include "main.h"
-  22:Core/Src/stm32l0xx_it.c **** #include "stm32l0xx_it.h"
-  23:Core/Src/stm32l0xx_it.c **** /* Private includes ----------------------------------------------------------*/
-  24:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN Includes */
-  25:Core/Src/stm32l0xx_it.c **** /* USER CODE END Includes */
-  26:Core/Src/stm32l0xx_it.c **** 
-  27:Core/Src/stm32l0xx_it.c **** /* Private typedef -----------------------------------------------------------*/
-  28:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN TD */
-  29:Core/Src/stm32l0xx_it.c **** 
-  30:Core/Src/stm32l0xx_it.c **** /* USER CODE END TD */
-  31:Core/Src/stm32l0xx_it.c **** 
-  32:Core/Src/stm32l0xx_it.c **** /* Private define ------------------------------------------------------------*/
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 2
+  25              	.LFB42:
+  26              		.file 1 "src/stm32l0xx_it.c"
+   1:src/stm32l0xx_it.c **** /* USER CODE BEGIN Header */
+   2:src/stm32l0xx_it.c **** /**
+   3:src/stm32l0xx_it.c ****   ******************************************************************************
+   4:src/stm32l0xx_it.c ****   * @file    stm32l0xx_it.c
+   5:src/stm32l0xx_it.c ****   * @brief   Interrupt Service Routines.
+   6:src/stm32l0xx_it.c ****   ******************************************************************************
+   7:src/stm32l0xx_it.c ****   * @attention
+   8:src/stm32l0xx_it.c ****   *
+   9:src/stm32l0xx_it.c ****   * Copyright (c) 2022 STMicroelectronics.
+  10:src/stm32l0xx_it.c ****   * All rights reserved.
+  11:src/stm32l0xx_it.c ****   *
+  12:src/stm32l0xx_it.c ****   * This software is licensed under terms that can be found in the LICENSE file
+  13:src/stm32l0xx_it.c ****   * in the root directory of this software component.
+  14:src/stm32l0xx_it.c ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  15:src/stm32l0xx_it.c ****   *
+  16:src/stm32l0xx_it.c ****   ******************************************************************************
+  17:src/stm32l0xx_it.c ****   */
+  18:src/stm32l0xx_it.c **** /* USER CODE END Header */
+  19:src/stm32l0xx_it.c **** 
+  20:src/stm32l0xx_it.c **** /* Includes ------------------------------------------------------------------*/
+  21:src/stm32l0xx_it.c **** #include "main.h"
+  22:src/stm32l0xx_it.c **** #include "stm32l0xx_it.h"
+  23:src/stm32l0xx_it.c **** #include "../mcu-bsp/lib/inc/viccom.h"
+  24:src/stm32l0xx_it.c **** /* Private includes ----------------------------------------------------------*/
+  25:src/stm32l0xx_it.c **** /* USER CODE BEGIN Includes */
+  26:src/stm32l0xx_it.c **** /* USER CODE END Includes */
+  27:src/stm32l0xx_it.c **** 
+  28:src/stm32l0xx_it.c **** /* Private typedef -----------------------------------------------------------*/
+  29:src/stm32l0xx_it.c **** /* USER CODE BEGIN TD */
+  30:src/stm32l0xx_it.c **** 
+  31:src/stm32l0xx_it.c **** /* USER CODE END TD */
+  32:src/stm32l0xx_it.c **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 2
 
 
-  33:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN PD */
-  34:Core/Src/stm32l0xx_it.c **** 
-  35:Core/Src/stm32l0xx_it.c **** /* USER CODE END PD */
-  36:Core/Src/stm32l0xx_it.c **** 
-  37:Core/Src/stm32l0xx_it.c **** /* Private macro -------------------------------------------------------------*/
-  38:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN PM */
-  39:Core/Src/stm32l0xx_it.c **** 
-  40:Core/Src/stm32l0xx_it.c **** /* USER CODE END PM */
-  41:Core/Src/stm32l0xx_it.c **** 
-  42:Core/Src/stm32l0xx_it.c **** /* Private variables ---------------------------------------------------------*/
-  43:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN PV */
-  44:Core/Src/stm32l0xx_it.c **** 
-  45:Core/Src/stm32l0xx_it.c **** /* USER CODE END PV */
-  46:Core/Src/stm32l0xx_it.c **** 
-  47:Core/Src/stm32l0xx_it.c **** /* Private function prototypes -----------------------------------------------*/
-  48:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN PFP */
-  49:Core/Src/stm32l0xx_it.c **** 
-  50:Core/Src/stm32l0xx_it.c **** /* USER CODE END PFP */
-  51:Core/Src/stm32l0xx_it.c **** 
-  52:Core/Src/stm32l0xx_it.c **** /* Private user code ---------------------------------------------------------*/
-  53:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN 0 */
-  54:Core/Src/stm32l0xx_it.c **** enum State {addressMode, lengthMode, crclMode, crchMode, payloadMode};
-  55:Core/Src/stm32l0xx_it.c **** enum State currentState = addressMode;
-  56:Core/Src/stm32l0xx_it.c **** uint8_t payloadLength;
-  57:Core/Src/stm32l0xx_it.c **** uint8_t crcl;
-  58:Core/Src/stm32l0xx_it.c **** uint8_t crch;
-  59:Core/Src/stm32l0xx_it.c **** uint8_t payload;
-  60:Core/Src/stm32l0xx_it.c **** 
-  61:Core/Src/stm32l0xx_it.c **** /* USER CODE END 0 */
-  62:Core/Src/stm32l0xx_it.c **** 
-  63:Core/Src/stm32l0xx_it.c **** /* External variables --------------------------------------------------------*/
-  64:Core/Src/stm32l0xx_it.c **** extern UART_HandleTypeDef hlpuart1;
-  65:Core/Src/stm32l0xx_it.c **** /* USER CODE BEGIN EV */
-  66:Core/Src/stm32l0xx_it.c **** 
-  67:Core/Src/stm32l0xx_it.c **** /* USER CODE END EV */
-  68:Core/Src/stm32l0xx_it.c **** 
-  69:Core/Src/stm32l0xx_it.c **** /******************************************************************************/
-  70:Core/Src/stm32l0xx_it.c **** /*           Cortex-M0+ Processor Interruption and Exception Handlers          */
-  71:Core/Src/stm32l0xx_it.c **** /******************************************************************************/
-  72:Core/Src/stm32l0xx_it.c **** /**
-  73:Core/Src/stm32l0xx_it.c ****   * @brief This function handles Non maskable interrupt.
-  74:Core/Src/stm32l0xx_it.c ****   */
-  75:Core/Src/stm32l0xx_it.c **** void NMI_Handler(void)
-  76:Core/Src/stm32l0xx_it.c **** {
-  27              		.loc 1 76 1 view -0
+  33:src/stm32l0xx_it.c **** /* Private define ------------------------------------------------------------*/
+  34:src/stm32l0xx_it.c **** /* USER CODE BEGIN PD */
+  35:src/stm32l0xx_it.c **** 
+  36:src/stm32l0xx_it.c **** /* USER CODE END PD */
+  37:src/stm32l0xx_it.c **** 
+  38:src/stm32l0xx_it.c **** /* Private macro -------------------------------------------------------------*/
+  39:src/stm32l0xx_it.c **** /* USER CODE BEGIN PM */
+  40:src/stm32l0xx_it.c **** 
+  41:src/stm32l0xx_it.c **** /* USER CODE END PM */
+  42:src/stm32l0xx_it.c **** 
+  43:src/stm32l0xx_it.c **** /* Private variables ---------------------------------------------------------*/
+  44:src/stm32l0xx_it.c **** /* USER CODE BEGIN PV */
+  45:src/stm32l0xx_it.c **** 
+  46:src/stm32l0xx_it.c **** /* USER CODE END PV */
+  47:src/stm32l0xx_it.c **** 
+  48:src/stm32l0xx_it.c **** /* Private function prototypes -----------------------------------------------*/
+  49:src/stm32l0xx_it.c **** /* USER CODE BEGIN PFP */
+  50:src/stm32l0xx_it.c **** 
+  51:src/stm32l0xx_it.c **** /* USER CODE END PFP */
+  52:src/stm32l0xx_it.c **** 
+  53:src/stm32l0xx_it.c **** /* Private user code ---------------------------------------------------------*/
+  54:src/stm32l0xx_it.c **** /* USER CODE BEGIN 0 */
+  55:src/stm32l0xx_it.c **** 
+  56:src/stm32l0xx_it.c **** /* USER CODE END 0 */
+  57:src/stm32l0xx_it.c **** 
+  58:src/stm32l0xx_it.c **** /* External variables --------------------------------------------------------*/
+  59:src/stm32l0xx_it.c **** extern UART_HandleTypeDef hlpuart1;
+  60:src/stm32l0xx_it.c **** /* USER CODE BEGIN EV */
+  61:src/stm32l0xx_it.c **** 
+  62:src/stm32l0xx_it.c **** /* USER CODE END EV */
+  63:src/stm32l0xx_it.c **** 
+  64:src/stm32l0xx_it.c **** /******************************************************************************/
+  65:src/stm32l0xx_it.c **** /*           Cortex-M0+ Processor Interruption and Exception Handlers          */
+  66:src/stm32l0xx_it.c **** /******************************************************************************/
+  67:src/stm32l0xx_it.c **** /**
+  68:src/stm32l0xx_it.c ****   * @brief This function handles Non maskable interrupt.
+  69:src/stm32l0xx_it.c ****   */
+  70:src/stm32l0xx_it.c **** void NMI_Handler(void)
+  71:src/stm32l0xx_it.c **** {
+  27              		.loc 1 71 1 view -0
   28              		.cfi_startproc
   29              		@ Volatile: function does not return.
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
   33              	.L2:
-  77:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-  78:Core/Src/stm32l0xx_it.c **** 
-  79:Core/Src/stm32l0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
-  80:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  81:Core/Src/stm32l0xx_it.c ****   while (1)
-  34              		.loc 1 81 3 discriminator 1 view .LVU1
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 3
+  72:src/stm32l0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
+  73:src/stm32l0xx_it.c **** 
+  74:src/stm32l0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 0 */
+  75:src/stm32l0xx_it.c ****   /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
+  76:src/stm32l0xx_it.c ****   while (1)
+  34              		.loc 1 76 3 discriminator 1 view .LVU1
+  77:src/stm32l0xx_it.c ****   {
+  78:src/stm32l0xx_it.c ****   }
+  35              		.loc 1 78 3 discriminator 1 view .LVU2
+  76:src/stm32l0xx_it.c ****   {
+  36              		.loc 1 76 9 discriminator 1 view .LVU3
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 3
 
 
-  82:Core/Src/stm32l0xx_it.c ****   {
-  83:Core/Src/stm32l0xx_it.c ****   }
-  35              		.loc 1 83 3 discriminator 1 view .LVU2
-  81:Core/Src/stm32l0xx_it.c ****   {
-  36              		.loc 1 81 9 discriminator 1 view .LVU3
   37 0000 FEE7     		b	.L2
   38              		.cfi_endproc
-  39              	.LFE40:
+  39              	.LFE42:
   41              		.section	.text.HardFault_Handler,"ax",%progbits
   42              		.align	1
   43              		.global	HardFault_Handler
@@ -137,37 +132,37 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
   46              		.thumb_func
   47              		.fpu softvfp
   49              	HardFault_Handler:
-  50              	.LFB41:
-  84:Core/Src/stm32l0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
-  85:Core/Src/stm32l0xx_it.c **** }
-  86:Core/Src/stm32l0xx_it.c **** 
-  87:Core/Src/stm32l0xx_it.c **** /**
-  88:Core/Src/stm32l0xx_it.c ****   * @brief This function handles Hard fault interrupt.
-  89:Core/Src/stm32l0xx_it.c ****   */
-  90:Core/Src/stm32l0xx_it.c **** void HardFault_Handler(void)
-  91:Core/Src/stm32l0xx_it.c **** {
-  51              		.loc 1 91 1 view -0
+  50              	.LFB43:
+  79:src/stm32l0xx_it.c ****   /* USER CODE END NonMaskableInt_IRQn 1 */
+  80:src/stm32l0xx_it.c **** }
+  81:src/stm32l0xx_it.c **** 
+  82:src/stm32l0xx_it.c **** /**
+  83:src/stm32l0xx_it.c ****   * @brief This function handles Hard fault interrupt.
+  84:src/stm32l0xx_it.c ****   */
+  85:src/stm32l0xx_it.c **** void HardFault_Handler(void)
+  86:src/stm32l0xx_it.c **** {
+  51              		.loc 1 86 1 view -0
   52              		.cfi_startproc
   53              		@ Volatile: function does not return.
   54              		@ args = 0, pretend = 0, frame = 0
   55              		@ frame_needed = 0, uses_anonymous_args = 0
   56              		@ link register save eliminated.
   57              	.L4:
-  92:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
-  93:Core/Src/stm32l0xx_it.c **** 
-  94:Core/Src/stm32l0xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
-  95:Core/Src/stm32l0xx_it.c ****   while (1)
-  58              		.loc 1 95 3 discriminator 1 view .LVU5
-  96:Core/Src/stm32l0xx_it.c ****   {
-  97:Core/Src/stm32l0xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-  98:Core/Src/stm32l0xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
-  99:Core/Src/stm32l0xx_it.c ****   }
-  59              		.loc 1 99 3 discriminator 1 view .LVU6
-  95:Core/Src/stm32l0xx_it.c ****   {
-  60              		.loc 1 95 9 discriminator 1 view .LVU7
+  87:src/stm32l0xx_it.c ****   /* USER CODE BEGIN HardFault_IRQn 0 */
+  88:src/stm32l0xx_it.c **** 
+  89:src/stm32l0xx_it.c ****   /* USER CODE END HardFault_IRQn 0 */
+  90:src/stm32l0xx_it.c ****   while (1)
+  58              		.loc 1 90 3 discriminator 1 view .LVU5
+  91:src/stm32l0xx_it.c ****   {
+  92:src/stm32l0xx_it.c ****     /* USER CODE BEGIN W1_HardFault_IRQn 0 */
+  93:src/stm32l0xx_it.c ****     /* USER CODE END W1_HardFault_IRQn 0 */
+  94:src/stm32l0xx_it.c ****   }
+  59              		.loc 1 94 3 discriminator 1 view .LVU6
+  90:src/stm32l0xx_it.c ****   {
+  60              		.loc 1 90 9 discriminator 1 view .LVU7
   61 0000 FEE7     		b	.L4
   62              		.cfi_endproc
-  63              	.LFE41:
+  63              	.LFE43:
   65              		.section	.text.SVC_Handler,"ax",%progbits
   66              		.align	1
   67              		.global	SVC_Handler
@@ -176,34 +171,34 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
   70              		.thumb_func
   71              		.fpu softvfp
   73              	SVC_Handler:
-  74              	.LFB42:
- 100:Core/Src/stm32l0xx_it.c **** }
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 4
+  74              	.LFB44:
+  95:src/stm32l0xx_it.c **** }
+  96:src/stm32l0xx_it.c **** 
+  97:src/stm32l0xx_it.c **** /**
+  98:src/stm32l0xx_it.c ****   * @brief This function handles System service call via SWI instruction.
+  99:src/stm32l0xx_it.c ****   */
+ 100:src/stm32l0xx_it.c **** void SVC_Handler(void)
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 4
 
 
- 101:Core/Src/stm32l0xx_it.c **** 
- 102:Core/Src/stm32l0xx_it.c **** /**
- 103:Core/Src/stm32l0xx_it.c ****   * @brief This function handles System service call via SWI instruction.
- 104:Core/Src/stm32l0xx_it.c ****   */
- 105:Core/Src/stm32l0xx_it.c **** void SVC_Handler(void)
- 106:Core/Src/stm32l0xx_it.c **** {
-  75              		.loc 1 106 1 view -0
+ 101:src/stm32l0xx_it.c **** {
+  75              		.loc 1 101 1 view -0
   76              		.cfi_startproc
   77              		@ args = 0, pretend = 0, frame = 0
   78              		@ frame_needed = 0, uses_anonymous_args = 0
   79              		@ link register save eliminated.
- 107:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 0 */
- 108:Core/Src/stm32l0xx_it.c **** 
- 109:Core/Src/stm32l0xx_it.c ****   /* USER CODE END SVC_IRQn 0 */
- 110:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 1 */
- 111:Core/Src/stm32l0xx_it.c **** 
- 112:Core/Src/stm32l0xx_it.c ****   /* USER CODE END SVC_IRQn 1 */
- 113:Core/Src/stm32l0xx_it.c **** }
-  80              		.loc 1 113 1 view .LVU9
+ 102:src/stm32l0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 0 */
+ 103:src/stm32l0xx_it.c **** 
+ 104:src/stm32l0xx_it.c ****   /* USER CODE END SVC_IRQn 0 */
+ 105:src/stm32l0xx_it.c ****   /* USER CODE BEGIN SVC_IRQn 1 */
+ 106:src/stm32l0xx_it.c **** 
+ 107:src/stm32l0xx_it.c ****   /* USER CODE END SVC_IRQn 1 */
+ 108:src/stm32l0xx_it.c **** }
+  80              		.loc 1 108 1 view .LVU9
   81              		@ sp needed
   82 0000 7047     		bx	lr
   83              		.cfi_endproc
-  84              	.LFE42:
+  84              	.LFE44:
   86              		.section	.text.PendSV_Handler,"ax",%progbits
   87              		.align	1
   88              		.global	PendSV_Handler
@@ -212,49 +207,49 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
   91              		.thumb_func
   92              		.fpu softvfp
   94              	PendSV_Handler:
-  95              	.LFB43:
- 114:Core/Src/stm32l0xx_it.c **** 
- 115:Core/Src/stm32l0xx_it.c **** /**
- 116:Core/Src/stm32l0xx_it.c ****   * @brief This function handles Pendable request for system service.
- 117:Core/Src/stm32l0xx_it.c ****   */
- 118:Core/Src/stm32l0xx_it.c **** void PendSV_Handler(void)
- 119:Core/Src/stm32l0xx_it.c **** {
-  96              		.loc 1 119 1 view -0
+  95              	.LFB45:
+ 109:src/stm32l0xx_it.c **** 
+ 110:src/stm32l0xx_it.c **** /**
+ 111:src/stm32l0xx_it.c ****   * @brief This function handles Pendable request for system service.
+ 112:src/stm32l0xx_it.c ****   */
+ 113:src/stm32l0xx_it.c **** void PendSV_Handler(void)
+ 114:src/stm32l0xx_it.c **** {
+  96              		.loc 1 114 1 view -0
   97              		.cfi_startproc
   98              		@ args = 0, pretend = 0, frame = 0
   99              		@ frame_needed = 0, uses_anonymous_args = 0
  100              		@ link register save eliminated.
- 120:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
- 121:Core/Src/stm32l0xx_it.c **** 
- 122:Core/Src/stm32l0xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
- 123:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
- 124:Core/Src/stm32l0xx_it.c **** 
- 125:Core/Src/stm32l0xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
- 126:Core/Src/stm32l0xx_it.c **** }
- 101              		.loc 1 126 1 view .LVU11
+ 115:src/stm32l0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 0 */
+ 116:src/stm32l0xx_it.c **** 
+ 117:src/stm32l0xx_it.c ****   /* USER CODE END PendSV_IRQn 0 */
+ 118:src/stm32l0xx_it.c ****   /* USER CODE BEGIN PendSV_IRQn 1 */
+ 119:src/stm32l0xx_it.c **** 
+ 120:src/stm32l0xx_it.c ****   /* USER CODE END PendSV_IRQn 1 */
+ 121:src/stm32l0xx_it.c **** }
+ 101              		.loc 1 121 1 view .LVU11
  102              		@ sp needed
  103 0000 7047     		bx	lr
  104              		.cfi_endproc
- 105              	.LFE43:
+ 105              	.LFE45:
  107              		.section	.text.SysTick_Handler,"ax",%progbits
  108              		.align	1
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 5
-
-
  109              		.global	SysTick_Handler
  110              		.syntax unified
  111              		.code	16
  112              		.thumb_func
  113              		.fpu softvfp
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 5
+
+
  115              	SysTick_Handler:
- 116              	.LFB44:
- 127:Core/Src/stm32l0xx_it.c **** 
- 128:Core/Src/stm32l0xx_it.c **** /**
- 129:Core/Src/stm32l0xx_it.c ****   * @brief This function handles System tick timer.
- 130:Core/Src/stm32l0xx_it.c ****   */
- 131:Core/Src/stm32l0xx_it.c **** void SysTick_Handler(void)
- 132:Core/Src/stm32l0xx_it.c **** {
- 117              		.loc 1 132 1 view -0
+ 116              	.LFB46:
+ 122:src/stm32l0xx_it.c **** 
+ 123:src/stm32l0xx_it.c **** /**
+ 124:src/stm32l0xx_it.c ****   * @brief This function handles System tick timer.
+ 125:src/stm32l0xx_it.c ****   */
+ 126:src/stm32l0xx_it.c **** void SysTick_Handler(void)
+ 127:src/stm32l0xx_it.c **** {
+ 117              		.loc 1 127 1 view -0
  118              		.cfi_startproc
  119              		@ args = 0, pretend = 0, frame = 0
  120              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -263,22 +258,22 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
  123              		.cfi_def_cfa_offset 8
  124              		.cfi_offset 4, -8
  125              		.cfi_offset 14, -4
- 133:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
- 134:Core/Src/stm32l0xx_it.c **** 
- 135:Core/Src/stm32l0xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
- 136:Core/Src/stm32l0xx_it.c ****   HAL_IncTick();
- 126              		.loc 1 136 3 view .LVU13
+ 128:src/stm32l0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 0 */
+ 129:src/stm32l0xx_it.c **** 
+ 130:src/stm32l0xx_it.c ****   /* USER CODE END SysTick_IRQn 0 */
+ 131:src/stm32l0xx_it.c ****   HAL_IncTick();
+ 126              		.loc 1 131 3 view .LVU13
  127 0002 FFF7FEFF 		bl	HAL_IncTick
  128              	.LVL0:
- 137:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
- 138:Core/Src/stm32l0xx_it.c **** 
- 139:Core/Src/stm32l0xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
- 140:Core/Src/stm32l0xx_it.c **** }
- 129              		.loc 1 140 1 is_stmt 0 view .LVU14
+ 132:src/stm32l0xx_it.c ****   /* USER CODE BEGIN SysTick_IRQn 1 */
+ 133:src/stm32l0xx_it.c **** 
+ 134:src/stm32l0xx_it.c ****   /* USER CODE END SysTick_IRQn 1 */
+ 135:src/stm32l0xx_it.c **** }
+ 129              		.loc 1 135 1 is_stmt 0 view .LVU14
  130              		@ sp needed
  131 0006 10BD     		pop	{r4, pc}
  132              		.cfi_endproc
- 133              	.LFE44:
+ 133              	.LFE46:
  135              		.section	.text.LPUART1_IRQHandler,"ax",%progbits
  136              		.align	1
  137              		.global	LPUART1_IRQHandler
@@ -287,269 +282,78 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 1
  140              		.thumb_func
  141              		.fpu softvfp
  143              	LPUART1_IRQHandler:
- 144              	.LFB45:
- 141:Core/Src/stm32l0xx_it.c **** 
- 142:Core/Src/stm32l0xx_it.c **** /******************************************************************************/
- 143:Core/Src/stm32l0xx_it.c **** /* STM32L0xx Peripheral Interrupt Handlers                                    */
- 144:Core/Src/stm32l0xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
- 145:Core/Src/stm32l0xx_it.c **** /* For the available peripheral interrupt handler names,                      */
- 146:Core/Src/stm32l0xx_it.c **** /* please refer to the startup file (startup_stm32l0xx.s).                    */
- 147:Core/Src/stm32l0xx_it.c **** /******************************************************************************/
- 148:Core/Src/stm32l0xx_it.c **** 
- 149:Core/Src/stm32l0xx_it.c **** /**
- 150:Core/Src/stm32l0xx_it.c ****   * @brief This function handles LPUART1 global interrupt / LPUART1 wake-up interrupt through EXTI 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 6
-
-
- 151:Core/Src/stm32l0xx_it.c ****   */
- 152:Core/Src/stm32l0xx_it.c **** void LPUART1_IRQHandler(void)
- 153:Core/Src/stm32l0xx_it.c **** {
- 145              		.loc 1 153 1 is_stmt 1 view -0
+ 144              	.LFB47:
+ 136:src/stm32l0xx_it.c **** 
+ 137:src/stm32l0xx_it.c **** /******************************************************************************/
+ 138:src/stm32l0xx_it.c **** /* STM32L0xx Peripheral Interrupt Handlers                                    */
+ 139:src/stm32l0xx_it.c **** /* Add here the Interrupt Handlers for the used peripherals.                  */
+ 140:src/stm32l0xx_it.c **** /* For the available peripheral interrupt handler names,                      */
+ 141:src/stm32l0xx_it.c **** /* please refer to the startup file (startup_stm32l0xx.s).                    */
+ 142:src/stm32l0xx_it.c **** /******************************************************************************/
+ 143:src/stm32l0xx_it.c **** 
+ 144:src/stm32l0xx_it.c **** /**
+ 145:src/stm32l0xx_it.c ****   * @brief This function handles LPUART1 global interrupt / LPUART1 wake-up interrupt through EXTI 
+ 146:src/stm32l0xx_it.c ****   */
+ 147:src/stm32l0xx_it.c **** void LPUART1_IRQHandler(void)
+ 148:src/stm32l0xx_it.c **** {
+ 145              		.loc 1 148 1 is_stmt 1 view -0
  146              		.cfi_startproc
- 147              		@ args = 0, pretend = 0, frame = 0
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 6
+
+
+ 147              		@ args = 0, pretend = 0, frame = 272
  148              		@ frame_needed = 0, uses_anonymous_args = 0
- 149              		@ link register save eliminated.
- 154:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN LPUART1_IRQn 0 */
- 155:Core/Src/stm32l0xx_it.c ****   //if the current state is address and 
- 156:Core/Src/stm32l0xx_it.c ****     int data = LPUART1->RDR;
- 150              		.loc 1 156 5 view .LVU16
- 151              		.loc 1 156 23 is_stmt 0 view .LVU17
- 152 0000 194B     		ldr	r3, .L17
- 153 0002 5A6A     		ldr	r2, [r3, #36]
- 154              	.LVL1:
- 157:Core/Src/stm32l0xx_it.c ****     if(currentState == addressMode && data & 0x100) {
- 155              		.loc 1 157 5 is_stmt 1 view .LVU18
- 156              		.loc 1 157 21 is_stmt 0 view .LVU19
- 157 0004 194B     		ldr	r3, .L17+4
- 158 0006 1B78     		ldrb	r3, [r3]
- 159              		.loc 1 157 7 view .LVU20
- 160 0008 002B     		cmp	r3, #0
- 161 000a 09D1     		bne	.L9
- 162              		.loc 1 157 36 discriminator 1 view .LVU21
- 163 000c D105     		lsls	r1, r2, #23
- 164 000e 07D5     		bpl	.L9
- 158:Core/Src/stm32l0xx_it.c ****         // we received an address byte
- 159:Core/Src/stm32l0xx_it.c ****         if((data & 0xff) == 0x41) {
- 165              		.loc 1 159 9 is_stmt 1 view .LVU22
- 166              		.loc 1 159 18 is_stmt 0 view .LVU23
- 167 0010 FF33     		adds	r3, r3, #255
- 168 0012 1A40     		ands	r2, r3
- 169              	.LVL2:
- 170              		.loc 1 159 11 view .LVU24
- 171 0014 412A     		cmp	r2, #65
- 172 0016 0CD1     		bne	.L8
- 160:Core/Src/stm32l0xx_it.c ****           // this is a packet for us
- 161:Core/Src/stm32l0xx_it.c ****           currentState = lengthMode;
- 173              		.loc 1 161 11 is_stmt 1 view .LVU25
- 174              		.loc 1 161 24 is_stmt 0 view .LVU26
- 175 0018 144B     		ldr	r3, .L17+4
- 176 001a 403A     		subs	r2, r2, #64
- 177 001c 1A70     		strb	r2, [r3]
- 178 001e 08E0     		b	.L8
- 179              	.LVL3:
- 180              	.L9:
- 162:Core/Src/stm32l0xx_it.c ****         } 
- 163:Core/Src/stm32l0xx_it.c ****     } else if (currentState == lengthMode && !(data & 0x100)) {
- 181              		.loc 1 163 12 is_stmt 1 view .LVU27
- 182              		.loc 1 163 15 is_stmt 0 view .LVU28
- 183 0020 012B     		cmp	r3, #1
- 184 0022 07D0     		beq	.L14
- 185              	.L11:
- 164:Core/Src/stm32l0xx_it.c ****       // this is a length value with correct address bit
- 165:Core/Src/stm32l0xx_it.c ****         payloadLength = data & 0xff;
- 166:Core/Src/stm32l0xx_it.c ****         currentState = crcl;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 7
-
-
- 167:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crclMode && !(data & 0x100)) {
- 186              		.loc 1 167 12 is_stmt 1 view .LVU29
- 187              		.loc 1 167 15 is_stmt 0 view .LVU30
- 188 0024 022B     		cmp	r3, #2
- 189 0026 0ED0     		beq	.L15
- 190              	.L12:
- 168:Core/Src/stm32l0xx_it.c ****       // this is a crcl value with correct address bit
- 169:Core/Src/stm32l0xx_it.c ****         crcl = data & 0xff;
- 170:Core/Src/stm32l0xx_it.c ****         currentState = crch;
- 171:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crchMode && !(data & 0x100)) {
- 191              		.loc 1 171 12 is_stmt 1 view .LVU31
- 192              		.loc 1 171 15 is_stmt 0 view .LVU32
- 193 0028 032B     		cmp	r3, #3
- 194 002a 15D0     		beq	.L16
- 195              	.L13:
- 172:Core/Src/stm32l0xx_it.c ****       // this is a crcl value with correct address bit
- 173:Core/Src/stm32l0xx_it.c ****         crch = data & 0xff;
- 174:Core/Src/stm32l0xx_it.c ****         currentState = payloadMode;
- 175:Core/Src/stm32l0xx_it.c ****     } else {
- 176:Core/Src/stm32l0xx_it.c ****       currentState = addressMode;
- 196              		.loc 1 176 7 is_stmt 1 view .LVU33
- 197              		.loc 1 176 20 is_stmt 0 view .LVU34
- 198 002c 0F4B     		ldr	r3, .L17+4
- 199 002e 0022     		movs	r2, #0
- 200              	.LVL4:
- 201              		.loc 1 176 20 view .LVU35
- 202 0030 1A70     		strb	r2, [r3]
- 177:Core/Src/stm32l0xx_it.c ****     }
- 178:Core/Src/stm32l0xx_it.c **** 
- 179:Core/Src/stm32l0xx_it.c **** 
- 180:Core/Src/stm32l0xx_it.c ****     return;
- 203              		.loc 1 180 5 is_stmt 1 view .LVU36
- 204              	.L8:
- 181:Core/Src/stm32l0xx_it.c ****     //set tc = 0 so that it knows it is complete. 
- 182:Core/Src/stm32l0xx_it.c ****     // LPUART1->ISR &= ~USART_ISR_TC_Msk;
- 183:Core/Src/stm32l0xx_it.c ****   /* USER CODE END LPUART1_IRQn 0 */
- 184:Core/Src/stm32l0xx_it.c ****   HAL_UART_IRQHandler(&hlpuart1);
- 185:Core/Src/stm32l0xx_it.c ****   /* USER CODE BEGIN LPUART1_IRQn 1 */
- 186:Core/Src/stm32l0xx_it.c **** 
- 187:Core/Src/stm32l0xx_it.c ****   /* USER CODE END LPUART1_IRQn 1 */
- 188:Core/Src/stm32l0xx_it.c **** }
- 205              		.loc 1 188 1 is_stmt 0 view .LVU37
- 206              		@ sp needed
- 207 0032 7047     		bx	lr
- 208              	.LVL5:
- 209              	.L14:
- 163:Core/Src/stm32l0xx_it.c ****       // this is a length value with correct address bit
- 210              		.loc 1 163 43 discriminator 1 view .LVU38
- 211 0034 D105     		lsls	r1, r2, #23
- 212 0036 F5D4     		bmi	.L11
- 165:Core/Src/stm32l0xx_it.c ****         currentState = crcl;
- 213              		.loc 1 165 9 is_stmt 1 view .LVU39
- 165:Core/Src/stm32l0xx_it.c ****         currentState = crcl;
- 214              		.loc 1 165 23 is_stmt 0 view .LVU40
- 215 0038 0D4B     		ldr	r3, .L17+8
- 216 003a 1A70     		strb	r2, [r3]
- 166:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crclMode && !(data & 0x100)) {
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 8
-
-
- 217              		.loc 1 166 9 is_stmt 1 view .LVU41
- 166:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crclMode && !(data & 0x100)) {
- 218              		.loc 1 166 22 is_stmt 0 view .LVU42
- 219 003c 0D4B     		ldr	r3, .L17+12
- 220 003e 1A78     		ldrb	r2, [r3]
- 221              	.LVL6:
- 166:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crclMode && !(data & 0x100)) {
- 222              		.loc 1 166 22 view .LVU43
- 223 0040 0A4B     		ldr	r3, .L17+4
- 224 0042 1A70     		strb	r2, [r3]
- 225 0044 F5E7     		b	.L8
- 226              	.LVL7:
- 227              	.L15:
- 167:Core/Src/stm32l0xx_it.c ****       // this is a crcl value with correct address bit
- 228              		.loc 1 167 41 discriminator 1 view .LVU44
- 229 0046 D105     		lsls	r1, r2, #23
- 230 0048 EED4     		bmi	.L12
- 169:Core/Src/stm32l0xx_it.c ****         currentState = crch;
- 231              		.loc 1 169 9 is_stmt 1 view .LVU45
- 169:Core/Src/stm32l0xx_it.c ****         currentState = crch;
- 232              		.loc 1 169 14 is_stmt 0 view .LVU46
- 233 004a 0A4B     		ldr	r3, .L17+12
- 234 004c 1A70     		strb	r2, [r3]
- 170:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crchMode && !(data & 0x100)) {
- 235              		.loc 1 170 9 is_stmt 1 view .LVU47
- 170:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crchMode && !(data & 0x100)) {
- 236              		.loc 1 170 22 is_stmt 0 view .LVU48
- 237 004e 0A4B     		ldr	r3, .L17+16
- 238 0050 1A78     		ldrb	r2, [r3]
- 239              	.LVL8:
- 170:Core/Src/stm32l0xx_it.c ****     } else if (currentState == crchMode && !(data & 0x100)) {
- 240              		.loc 1 170 22 view .LVU49
- 241 0052 064B     		ldr	r3, .L17+4
- 242 0054 1A70     		strb	r2, [r3]
- 243 0056 ECE7     		b	.L8
- 244              	.LVL9:
- 245              	.L16:
- 171:Core/Src/stm32l0xx_it.c ****       // this is a crcl value with correct address bit
- 246              		.loc 1 171 41 discriminator 1 view .LVU50
- 247 0058 D305     		lsls	r3, r2, #23
- 248 005a E7D4     		bmi	.L13
- 173:Core/Src/stm32l0xx_it.c ****         currentState = payloadMode;
- 249              		.loc 1 173 9 is_stmt 1 view .LVU51
- 173:Core/Src/stm32l0xx_it.c ****         currentState = payloadMode;
- 250              		.loc 1 173 14 is_stmt 0 view .LVU52
- 251 005c 064B     		ldr	r3, .L17+16
- 252 005e 1A70     		strb	r2, [r3]
- 174:Core/Src/stm32l0xx_it.c ****     } else {
- 253              		.loc 1 174 9 is_stmt 1 view .LVU53
- 174:Core/Src/stm32l0xx_it.c ****     } else {
- 254              		.loc 1 174 22 is_stmt 0 view .LVU54
- 255 0060 024B     		ldr	r3, .L17+4
- 256 0062 0422     		movs	r2, #4
- 257              	.LVL10:
- 174:Core/Src/stm32l0xx_it.c ****     } else {
- 258              		.loc 1 174 22 view .LVU55
- 259 0064 1A70     		strb	r2, [r3]
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 9
-
-
- 260 0066 E4E7     		b	.L8
- 261              	.L18:
- 262              		.align	2
- 263              	.L17:
- 264 0068 00480040 		.word	1073760256
- 265 006c 00000000 		.word	.LANCHOR0
- 266 0070 00000000 		.word	.LANCHOR1
- 267 0074 00000000 		.word	.LANCHOR2
- 268 0078 00000000 		.word	.LANCHOR3
- 269              		.cfi_endproc
- 270              	.LFE45:
- 272              		.global	payload
- 273              		.global	crch
- 274              		.global	crcl
- 275              		.global	payloadLength
- 276              		.global	currentState
- 277              		.section	.bss.crch,"aw",%nobits
- 278              		.set	.LANCHOR3,. + 0
- 281              	crch:
- 282 0000 00       		.space	1
- 283              		.section	.bss.crcl,"aw",%nobits
- 284              		.set	.LANCHOR2,. + 0
- 287              	crcl:
- 288 0000 00       		.space	1
- 289              		.section	.bss.currentState,"aw",%nobits
- 290              		.set	.LANCHOR0,. + 0
- 293              	currentState:
- 294 0000 00       		.space	1
- 295              		.section	.bss.payload,"aw",%nobits
- 298              	payload:
- 299 0000 00       		.space	1
- 300              		.section	.bss.payloadLength,"aw",%nobits
- 301              		.set	.LANCHOR1,. + 0
- 304              	payloadLength:
- 305 0000 00       		.space	1
- 306              		.text
- 307              	.Letext0:
- 308              		.file 2 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 309              		.file 3 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 310              		.file 4 "Drivers/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h"
- 311              		.file 5 "Drivers/STM32L0xx_HAL_Driver/Inc/stm32l0xx_hal.h"
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s 			page 10
+ 149 0000 00B5     		push	{lr}
+ 150              	.LCFI1:
+ 151              		.cfi_def_cfa_offset 4
+ 152              		.cfi_offset 14, -4
+ 153 0002 C5B0     		sub	sp, sp, #276
+ 154              	.LCFI2:
+ 155              		.cfi_def_cfa_offset 280
+ 149:src/stm32l0xx_it.c **** 
+ 150:src/stm32l0xx_it.c ****   viccom_t state;
+ 156              		.loc 1 150 3 view .LVU16
+ 151:src/stm32l0xx_it.c ****   VICCOM_uartHandler(&state);
+ 157              		.loc 1 151 3 view .LVU17
+ 158 0004 01A8     		add	r0, sp, #4
+ 159 0006 FFF7FEFF 		bl	VICCOM_uartHandler
+ 160              	.LVL1:
+ 152:src/stm32l0xx_it.c ****   return;
+ 161              		.loc 1 152 3 view .LVU18
+ 153:src/stm32l0xx_it.c ****   /* USER CODE BEGIN LPUART1_IRQn 1 */
+ 154:src/stm32l0xx_it.c **** 
+ 155:src/stm32l0xx_it.c ****   /* USER CODE END LPUART1_IRQn 1 */
+ 156:src/stm32l0xx_it.c **** }
+ 162              		.loc 1 156 1 is_stmt 0 view .LVU19
+ 163 000a 45B0     		add	sp, sp, #276
+ 164              		@ sp needed
+ 165 000c 00BD     		pop	{pc}
+ 166              		.cfi_endproc
+ 167              	.LFE47:
+ 169              		.text
+ 170              	.Letext0:
+ 171              		.file 2 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 172              		.file 3 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 173              		.file 4 "src/../mcu-bsp/lib/inc/viccom.h"
+ 174              		.file 5 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal.h"
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l0xx_it.c
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:16     .text.NMI_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:24     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:42     .text.HardFault_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:49     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:66     .text.SVC_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:73     .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:87     .text.PendSV_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:94     .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:108    .text.SysTick_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:115    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:136    .text.LPUART1_IRQHandler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:143    .text.LPUART1_IRQHandler:00000000 LPUART1_IRQHandler
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:264    .text.LPUART1_IRQHandler:00000068 $d
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:298    .bss.payload:00000000 payload
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:281    .bss.crch:00000000 crch
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:287    .bss.crcl:00000000 crcl
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:304    .bss.payloadLength:00000000 payloadLength
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:293    .bss.currentState:00000000 currentState
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:282    .bss.crch:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:288    .bss.crcl:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:294    .bss.currentState:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:299    .bss.payload:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccKh2vJc.s:305    .bss.payloadLength:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:16     .text.NMI_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:24     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:42     .text.HardFault_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:49     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:66     .text.SVC_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:73     .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:87     .text.PendSV_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:94     .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:108    .text.SysTick_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:115    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:136    .text.LPUART1_IRQHandler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cctKqR6E.s:143    .text.LPUART1_IRQHandler:00000000 LPUART1_IRQHandler
 
 UNDEFINED SYMBOLS
 HAL_IncTick
+VICCOM_uartHandler

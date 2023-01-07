@@ -36,5 +36,9 @@
   "search.exclude": {
     "build/": true
   },
-  "cortex-debug.variableUseNaturalFormat": false
+  "cortex-debug.variableUseNaturalFormat": false,
+  "files.associations": {
+    "stdbool.h": "c",
+    "stm32l011xx.h": "c"
+  }
 }
