@@ -2139,7 +2139,7 @@ LOAD c:/programdata/chocolatey/lib/gcc-arm-embedded/tools/gcc-arm-none-eabi-10-2
  .debug_ranges  0x000007f8       0x30 build/viccom_stm32l0xx.o
  .debug_ranges  0x00000828       0x20 build/startup_stm32l011xx.o
 
-.debug_line     0x00000000     0xa3a6
+.debug_line     0x00000000     0xa3a7
  .debug_line    0x00000000      0x587 build/main.o
  .debug_line    0x00000587      0x238 build/stm32l0xx_it.o
  .debug_line    0x000007bf      0x41e build/stm32l0xx_hal_msp.o
@@ -2153,8 +2153,8 @@ LOAD c:/programdata/chocolatey/lib/gcc-arm-embedded/tools/gcc-arm-none-eabi-10-2
  .debug_line    0x000037a2     0x24e9 build/stm32l0xx_hal_spi.o
  .debug_line    0x00005c8b     0x3db0 build/stm32l0xx_hal_uart.o
  .debug_line    0x00009a3b      0x644 build/stm32l0xx_hal.o
- .debug_line    0x0000a07f      0x29e build/viccom_stm32l0xx.o
- .debug_line    0x0000a31d       0x89 build/startup_stm32l011xx.o
+ .debug_line    0x0000a07f      0x29f build/viccom_stm32l0xx.o
+ .debug_line    0x0000a31e       0x89 build/startup_stm32l011xx.o
 
 .debug_str      0x00000000     0x2974
  .debug_str     0x00000000      0xc4c build/main.o
