@@ -41,6 +41,7 @@
     "stdbool.h": "c",
     "stm32l011xx.h": "c",
     "main.h": "c",
-    "viccom.h": "c"
+    "viccom.h": "c",
+    "stm32l0xx_it.h": "c"
   }
 }

@@ -20,6 +20,7 @@
 #include "main.h"
 #include "../mcu-bsp/lib/inc/viccom.h"
 #include "stm32l011xx.h"
+#include "stm32l0xx_hal_dma.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -104,9 +105,9 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
+  VICCOM_stm_init(&state, 2);
   NVIC_EnableIRQ(LPUART1_IRQn);
   LPUART1->CR1 |= USART_CR1_RXNEIE;
-  VICCOM_stm_init(&state, 1);
 
   /* USER CODE END 2 */
 
@@ -287,6 +288,13 @@ static void MX_DMA_Init(void)
   /* DMA1_Channel2_3_IRQn interrupt configuration */
   HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0, 0);
   HAL_NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+  /* Peripheral DMA init*/
+  // DMA1_CSELR->CSELR |=  0x500;
+  // DMA1_CSELR->CSELR &= ~(0xA00);
+  // hdma_lpuart1_rx.Init.Direction = DMA_PERIPH_TO_MEMORY;
+  // hdma_lpuart1_rx.Init.Mode = DMA_NORMAL;
+  // hdma_lpuart1_rx.Init.Priority = DMA_PRIORITY_LOW;
+  // HAL_DMA_Init(&hdma_lpuart1_rx);
 
 }
 
