@@ -6,7 +6,7 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2022 STMicroelectronics.
+  * Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.
   *
   * This software is licensed under terms that can be found in the LICENSE file
@@ -18,6 +18,8 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "../mcu-bsp/lib/inc/viccom.h"
+#include "stm32l011xx.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -42,6 +44,8 @@
 CRC_HandleTypeDef hcrc;
 
 UART_HandleTypeDef hlpuart1;
+DMA_HandleTypeDef hdma_lpuart1_rx;
+DMA_HandleTypeDef hdma_lpuart1_tx;
 
 SPI_HandleTypeDef hspi1;
 
@@ -52,6 +56,7 @@ SPI_HandleTypeDef hspi1;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_CRC_Init(void);
 static void MX_LPUART1_UART_Init(void);
 static void MX_SPI1_Init(void);
@@ -61,11 +66,8 @@ static void MX_SPI1_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint8_t addr_buffer[1];
-uint8_t size_buffer[1];
-uint8_t data_buffer[1];
-uint8_t addressCorrect = 0;
-uint8_t sizeReceived = 0;
+
+viccom_t state;
 
 /* USER CODE END 0 */
 
@@ -97,13 +99,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_CRC_Init();
   MX_LPUART1_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  char* Message = "Starting to receive data";
-  HAL_UART_Transmit(&hlpuart1, (uint8_t *)Message, strlen(Message), 10);
-  HAL_UART_Receive_IT(&hlpuart1, addr_buffer, 1);
+  NVIC_EnableIRQ(LPUART1_IRQn);
+  LPUART1->CR1 |= USART_CR1_RXNEIE;
+  VICCOM_stm_init(&state, 1);
 
   /* USER CODE END 2 */
 
@@ -113,19 +116,8 @@ int main(void)
   {
     /* USER CODE END WHILE */
 
+
     /* USER CODE BEGIN 3 */
-    // uint8_t x = 65;
-    // HAL_UART_Transmit(&hlpuart1, &x, 1, HAL_MAX_DELAY);
-    // uint8_t rx_data[10]; 
-    // HAL_UART_Receive(&hlpuart1, rx_data, 10 * sizeof(uint8_t));
-
-
-    //want to implement uart handler. send your stm32 a message and get into that. i.e. from serial to usb to stm32 and be able to get into that. 
-    //whatt interupt to enable and how to do so. From there how to handle it. 
-    //next step would be clearing that interrupt so you get out of that. 
-
-    //address, length, payload. 
-    //1 byte, 1 byte, 256 bytes
   }
   /* USER CODE END 3 */
 }
@@ -224,7 +216,6 @@ static void MX_LPUART1_UART_Init(void)
   /* USER CODE END LPUART1_Init 0 */
 
   /* USER CODE BEGIN LPUART1_Init 1 */
-
   /* USER CODE END LPUART1_Init 1 */
   hlpuart1.Instance = LPUART1;
   hlpuart1.Init.BaudRate = 3000000;
@@ -280,6 +271,22 @@ static void MX_SPI1_Init(void)
   /* USER CODE BEGIN SPI1_Init 2 */
 
   /* USER CODE END SPI1_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Channel2_3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Channel2_3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
 
 }
 

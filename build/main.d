@@ -27,7 +27,9 @@ build/main.o: src/main.c inc/main.h \
  mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_pwr_ex.h \
  mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_spi.h \
  mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart.h \
- mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart_ex.h
+ mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart_ex.h \
+ src/../mcu-bsp/lib/inc/viccom.h \
+ mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h
 inc/main.h:
 mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal.h:
 mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_conf.h:
@@ -59,3 +61,5 @@ mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_pwr_ex.h:
 mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_spi.h:
 mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart.h:
 mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart_ex.h:
+src/../mcu-bsp/lib/inc/viccom.h:
+mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h:

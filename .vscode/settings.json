@@ -39,6 +39,8 @@
   "cortex-debug.variableUseNaturalFormat": false,
   "files.associations": {
     "stdbool.h": "c",
-    "stm32l011xx.h": "c"
+    "stm32l011xx.h": "c",
+    "main.h": "c",
+    "viccom.h": "c"
   }
 }

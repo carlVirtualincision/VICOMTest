@@ -144,10 +144,9 @@ void SysTick_Handler(void)
 /**
   * @brief This function handles LPUART1 global interrupt / LPUART1 wake-up interrupt through EXTI line 28.
   */
+ extern viccom_t state;
 void LPUART1_IRQHandler(void)
 {
-
-  viccom_t state;
   VICCOM_uartHandler(&state);
   return;
   /* USER CODE BEGIN LPUART1_IRQn 1 */
