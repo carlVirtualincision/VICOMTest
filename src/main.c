@@ -108,7 +108,8 @@ int main(void)
   NVIC_EnableIRQ(LPUART1_IRQn);
   LPUART1->CR1 |= USART_CR1_RXNEIE;
   uint8_t fakeBuffer[1];
-  // VICCOM_send(&state, fakeBuffer, 2);
+  VICCOM_send(&state, fakeBuffer, 2);
+  VICCOM_send(&state, fakeBuffer, 2);
 
   /* USER CODE END 2 */
 
