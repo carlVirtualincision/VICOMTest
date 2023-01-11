@@ -154,6 +154,11 @@ void LPUART1_IRQHandler(void)
   /* USER CODE END LPUART1_IRQn 1 */
 }
 
+void DMA1_Channel2_3_IRQHandler(void)
+{
+    VICCOM_pdmaHandler(&state);
+}
+
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */

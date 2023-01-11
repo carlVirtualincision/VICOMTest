@@ -101,12 +101,18 @@ while True:
     write([x], 0)
     x = 0xFF
     write([x], 0)
-    x = 0x02
+    x = 0x03
     write([x], 1)
     # write([len(state.SerializeToString())], 0)
     # write([headerCRC & 0xff], 0)
     # write([(headerCRC >> 8) & 0xFF], 0)
-
+    x = 0x04
+    write([x], 1)
+    write([x], 0)
+    x = 0x01
+    write([x], 0)
+    x = 0x03
+    write([x], 1)
     
     # write(state.SerializeToString(), 0)
     # # ser.write(state.SerializeToString())

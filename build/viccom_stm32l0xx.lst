@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -33,70 +33,108 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
    4:mcu-bsp/lib/src/viccom_stm32l0xx.c **** #include "../inc/viccom.h"
    5:mcu-bsp/lib/src/viccom_stm32l0xx.c **** #include "main.h"
    6:mcu-bsp/lib/src/viccom_stm32l0xx.c **** extern UART_HandleTypeDef hlpuart1;
-   7:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_stm_init(viccom_t* state, uint8_t address) {
-  28              		.loc 1 7 56 view -0
+   7:mcu-bsp/lib/src/viccom_stm32l0xx.c **** uint8_t transmitData[4];
+   8:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_stm_init(viccom_t* state, uint8_t address) {
+  28              		.loc 1 8 56 view -0
   29              		.cfi_startproc
   30              		@ args = 0, pretend = 0, frame = 0
   31              		@ frame_needed = 0, uses_anonymous_args = 0
   32              		@ link register save eliminated.
-   8:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->address = address;
-  33              		.loc 1 8 5 view .LVU1
-  34              		.loc 1 8 20 is_stmt 0 view .LVU2
+   9:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->address = address;
+  33              		.loc 1 9 5 view .LVU1
+  34              		.loc 1 9 20 is_stmt 0 view .LVU2
   35 0000 4170     		strb	r1, [r0, #1]
-   9:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->addressFlag = false;
-  36              		.loc 1 9 5 is_stmt 1 view .LVU3
-  37              		.loc 1 9 24 is_stmt 0 view .LVU4
+  10:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->addressFlag = false;
+  36              		.loc 1 10 5 is_stmt 1 view .LVU3
+  37              		.loc 1 10 24 is_stmt 0 view .LVU4
   38 0002 0023     		movs	r3, #0
   39 0004 8370     		strb	r3, [r0, #2]
-  10:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->currentState = STATE_WAITING_FOR_ADDRESS;
-  40              		.loc 1 10 5 is_stmt 1 view .LVU5
-  41              		.loc 1 10 25 is_stmt 0 view .LVU6
+  11:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->currentState = STATE_WAITING_FOR_ADDRESS;
+  40              		.loc 1 11 5 is_stmt 1 view .LVU5
+  41              		.loc 1 11 25 is_stmt 0 view .LVU6
   42 0006 4374     		strb	r3, [r0, #17]
-  11:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
   12:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  13:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
-  43              		.loc 1 13 1 view .LVU7
+  13:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  14:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
+  43              		.loc 1 14 1 view .LVU7
   44              		@ sp needed
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 2
+
+
   45 0008 7047     		bx	lr
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 2
-
-
   46              		.cfi_endproc
   47              	.LFE42:
-  49              		.section	.text.DMA1_Channel2_3_IRQHandler,"ax",%progbits
+  49              		.section	.text.VICCOM_pdmaHandler,"ax",%progbits
   50              		.align	1
-  51              		.global	DMA1_Channel2_3_IRQHandler
+  51              		.global	VICCOM_pdmaHandler
   52              		.syntax unified
   53              		.code	16
   54              		.thumb_func
   55              		.fpu softvfp
-  57              	DMA1_Channel2_3_IRQHandler:
-  58              	.LFB43:
-  14:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  15:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void DMA1_Channel2_3_IRQHandler(void)
-  16:mcu-bsp/lib/src/viccom_stm32l0xx.c **** {
-  59              		.loc 1 16 1 is_stmt 1 view -0
-  60              		.cfi_startproc
-  61              		@ args = 0, pretend = 0, frame = 0
-  62              		@ frame_needed = 0, uses_anonymous_args = 0
-  63              		@ link register save eliminated.
-  17:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //clear interrupt flags
-  18:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1->IFCR |= 0x700;
-  64              		.loc 1 18 5 view .LVU9
-  65              		.loc 1 18 16 is_stmt 0 view .LVU10
-  66 0000 0A4A     		ldr	r2, .L3
-  67 0002 5168     		ldr	r1, [r2, #4]
-  68 0004 E023     		movs	r3, #224
-  69 0006 DB00     		lsls	r3, r3, #3
-  70 0008 0B43     		orrs	r3, r1
-  71 000a 5360     		str	r3, [r2, #4]
-  19:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //disable dma for the time being due to successful payload received. 
-  20:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_DisableIRQ(DMA1_Channel2_3_IRQn);
-  72              		.loc 1 20 5 is_stmt 1 view .LVU11
-  73              	.LVL1:
-  74              	.LBB21:
-  75              	.LBI21:
-  76              		.file 2 "mcu-bsp/CMSIS/Include/core_cm0plus.h"
+  57              	VICCOM_pdmaHandler:
+  58              	.LVL1:
+  59              	.LFB43:
+  15:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  16:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_pdmaHandler(viccom_t *state) {
+  60              		.loc 1 16 42 is_stmt 1 view -0
+  61              		.cfi_startproc
+  62              		@ args = 0, pretend = 0, frame = 0
+  63              		@ frame_needed = 0, uses_anonymous_args = 0
+  64              		.loc 1 16 42 is_stmt 0 view .LVU9
+  65 0000 30B5     		push	{r4, r5, lr}
+  66              	.LCFI0:
+  67              		.cfi_def_cfa_offset 12
+  68              		.cfi_offset 4, -12
+  69              		.cfi_offset 5, -8
+  70              		.cfi_offset 14, -4
+  17:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     if(state->txBusy) {
+  71              		.loc 1 17 5 is_stmt 1 view .LVU10
+  72              		.loc 1 17 13 is_stmt 0 view .LVU11
+  73 0002 0378     		ldrb	r3, [r0]
+  74              		.loc 1 17 7 view .LVU12
+  75 0004 002B     		cmp	r3, #0
+  76 0006 1DD0     		beq	.L3
+  18:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         //clear transmission complete registers so it doesn't repeatedly enter interrupt handlers
+  19:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         DMA1->IFCR |= 0x70;
+  77              		.loc 1 19 9 is_stmt 1 view .LVU13
+  78              		.loc 1 19 20 is_stmt 0 view .LVU14
+  79 0008 234A     		ldr	r2, .L5
+  80 000a 5368     		ldr	r3, [r2, #4]
+  81 000c 7021     		movs	r1, #112
+  82 000e 0B43     		orrs	r3, r1
+  83 0010 5360     		str	r3, [r2, #4]
+  20:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         LPUART1->ICR |= USART_ICR_TCCF;
+  84              		.loc 1 20 9 is_stmt 1 view .LVU15
+  85              		.loc 1 20 22 is_stmt 0 view .LVU16
+  86 0012 224B     		ldr	r3, .L5+4
+  87 0014 1A6A     		ldr	r2, [r3, #32]
+  88 0016 3039     		subs	r1, r1, #48
+  89 0018 0A43     		orrs	r2, r1
+  90 001a 1A62     		str	r2, [r3, #32]
+  21:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  22:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         state->txBusy = 0;
+  91              		.loc 1 22 9 is_stmt 1 view .LVU17
+  92              		.loc 1 22 23 is_stmt 0 view .LVU18
+  93 001c 0022     		movs	r2, #0
+  94 001e 0270     		strb	r2, [r0]
+  23:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 3
+
+
+  24:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         //disable dma as transmission is complete
+  25:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         LPUART1->CR3 &= ~(USART_CR3_DMAT);
+  95              		.loc 1 25 9 is_stmt 1 view .LVU19
+  96              		.loc 1 25 22 is_stmt 0 view .LVU20
+  97 0020 9A68     		ldr	r2, [r3, #8]
+  98 0022 4031     		adds	r1, r1, #64
+  99 0024 8A43     		bics	r2, r1
+ 100 0026 9A60     		str	r2, [r3, #8]
+  26:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         NVIC_DisableIRQ(DMA1_Channel2_3_IRQn);
+ 101              		.loc 1 26 9 is_stmt 1 view .LVU21
+ 102              	.LVL2:
+ 103              	.LBB39:
+ 104              	.LBI39:
+ 105              		.file 2 "mcu-bsp/CMSIS/Include/core_cm0plus.h"
    1:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**************************************************************************//**
    2:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * @file     core_cm0plus.h
    3:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * @brief    CMSIS Cortex-M0+ Core Peripheral Access Layer Header File
@@ -118,9 +156,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   19:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
   20:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   21:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * See the License for the specific language governing permissions and
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 3
-
-
   22:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * limitations under the License.
   23:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
   24:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
@@ -143,6 +178,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   41:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
   42:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   CMSIS violates the following MISRA-C:2004 rules:
   43:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 4
+
+
   44:mcu-bsp/CMSIS/Include/core_cm0plus.h ****    \li Required Rule 8.5, object/function definition in header file.<br>
   45:mcu-bsp/CMSIS/Include/core_cm0plus.h ****      Function definitions in header files are used to allow 'inlining'.
   46:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
@@ -178,9 +216,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   76:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define __FPU_USED       0U
   77:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   78:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #if defined ( __CC_ARM )
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 4
-
-
   79:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #if defined __TARGET_FPU_VFP
   80:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
   81:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
@@ -203,6 +238,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   98:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #elif defined ( __TI_ARM__ )
   99:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #if defined __TI_VFP_SUPPORT__
  100:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 5
+
+
  101:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
  102:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  103:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #elif defined ( __TASKING__ )
@@ -238,9 +276,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  133:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* check device defines and use defaults */
  134:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #if defined __CHECK_DEVICE_DEFINES
  135:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #ifndef __CM0PLUS_REV
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 5
-
-
  136:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #define __CM0PLUS_REV             0x0000U
  137:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #warning "__CM0PLUS_REV not defined in device header file; using default!"
  138:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
@@ -263,6 +298,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  155:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #ifndef __Vendor_SysTickConfig
  156:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #define __Vendor_SysTickConfig    0U
  157:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 6
+
+
  158:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
  159:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #endif
  160:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
@@ -298,9 +336,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  190:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core NVIC Register
  191:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core SCB Register
  192:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core SysTick Register
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 6
-
-
  193:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core MPU Register
  194:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  ******************************************************************************/
  195:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
@@ -323,6 +358,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  212:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   struct
  213:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
  214:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t _reserved0:28;              /*!< bit:  0..27  Reserved */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 7
+
+
  215:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
  216:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
  217:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
@@ -358,9 +396,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  247:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
  248:mcu-bsp/CMSIS/Include/core_cm0plus.h **** } IPSR_Type;
  249:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 7
-
-
  250:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* IPSR Register Definitions */
  251:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define IPSR_ISR_Pos                        0U                                            /*!< IPSR
  252:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define IPSR_ISR_Msk                       (0x1FFUL /*<< IPSR_ISR_Pos*/)                  /*!< IPSR
@@ -383,6 +418,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  269:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
  270:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
  271:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 8
+
+
  272:mcu-bsp/CMSIS/Include/core_cm0plus.h **** } xPSR_Type;
  273:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  274:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* xPSR Register Definitions */
@@ -418,9 +456,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  304:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
  305:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
  306:mcu-bsp/CMSIS/Include/core_cm0plus.h **** } CONTROL_Type;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 8
-
-
  307:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  308:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* CONTROL Register Definitions */
  309:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define CONTROL_SPSEL_Pos                   1U                                            /*!< CONT
@@ -443,6 +478,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  326:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC).
  327:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  328:mcu-bsp/CMSIS/Include/core_cm0plus.h **** typedef struct
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 9
+
+
  329:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
  330:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t ISER[1U];               /*!< Offset: 0x000 (R/W)  Interrupt Set Enable Register */
  331:mcu-bsp/CMSIS/Include/core_cm0plus.h ****         uint32_t RESERVED0[31U];
@@ -478,9 +516,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  361:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #else
  362:mcu-bsp/CMSIS/Include/core_cm0plus.h ****         uint32_t RESERVED0;
  363:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #endif
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 9
-
-
  364:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t AIRCR;                  /*!< Offset: 0x00C (R/W)  Application Interrupt and Reset 
  365:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t SCR;                    /*!< Offset: 0x010 (R/W)  System Control Register */
  366:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t CCR;                    /*!< Offset: 0x014 (R/W)  Configuration Control Register *
@@ -503,6 +538,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  383:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFUL << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
  384:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  385:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_REVISION_Pos              0U                                            /*!< SCB 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 10
+
+
  386:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_REVISION_Msk             (0xFUL /*<< SCB_CPUID_REVISION_Pos*/)          /*!< SCB 
  387:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  388:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SCB Interrupt Control State Register Definitions */
@@ -538,9 +576,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  418:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_VTOR_TBLOFF_Pos                 8U                                            /*!< SCB 
  419:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_VTOR_TBLOFF_Msk                (0xFFFFFFUL << SCB_VTOR_TBLOFF_Pos)            /*!< SCB 
  420:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #endif
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 10
-
-
  421:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  422:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SCB Application Interrupt and Reset Control Register Definitions */
  423:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_AIRCR_VECTKEY_Pos              16U                                            /*!< SCB 
@@ -563,6 +598,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  440:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
  441:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  442:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 11
+
+
  443:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
  444:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  445:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SLEEPONEXIT_Pos             1U                                            /*!< SCB 
@@ -598,9 +636,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  475:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t LOAD;                   /*!< Offset: 0x004 (R/W)  SysTick Reload Value Register */
  476:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IOM uint32_t VAL;                    /*!< Offset: 0x008 (R/W)  SysTick Current Value Register *
  477:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   __IM  uint32_t CALIB;                  /*!< Offset: 0x00C (R/ )  SysTick Calibration Register */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 11
-
-
  478:mcu-bsp/CMSIS/Include/core_cm0plus.h **** } SysTick_Type;
  479:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  480:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SysTick Control / Status Register Definitions */
@@ -623,6 +658,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  497:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SysTick Current Register Definitions */
  498:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysT
  499:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysT
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 12
+
+
  500:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  501:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SysTick Calibration Register Definitions */
  502:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_CALIB_NOREF_Pos            31U                                            /*!< SysT
@@ -658,9 +696,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  532:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  533:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_TYPE_RALIASES                  1U
  534:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 12
-
-
  535:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* MPU Type Register Definitions */
  536:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_TYPE_IREGION_Pos               16U                                            /*!< MPU 
  537:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_TYPE_IREGION_Msk               (0xFFUL << MPU_TYPE_IREGION_Pos)               /*!< MPU 
@@ -683,6 +718,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  554:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  555:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* MPU Region Number Register Definitions */
  556:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RNR_REGION_Pos                  0U                                            /*!< MPU 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 13
+
+
  557:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RNR_REGION_Msk                 (0xFFUL /*<< MPU_RNR_REGION_Pos*/)             /*!< MPU 
  558:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  559:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* MPU Region Base Address Register Definitions */
@@ -718,9 +756,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  589:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RASR_B_Msk                     (1UL << MPU_RASR_B_Pos)                        /*!< MPU 
  590:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  591:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RASR_SRD_Pos                    8U                                            /*!< MPU 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 13
-
-
  592:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RASR_SRD_Msk                   (0xFFUL << MPU_RASR_SRD_Pos)                   /*!< MPU 
  593:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  594:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RASR_SIZE_Pos                   1U                                            /*!< MPU 
@@ -743,6 +778,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  611:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /*@} end of group CMSIS_CoreDebug */
  612:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  613:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 14
+
+
  614:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
  615:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \ingroup    CMSIS_core_register
  616:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \defgroup   CMSIS_core_bitfield     Core register bit field macros
@@ -778,9 +816,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  646:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  647:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* Memory mapping of Core Hardware */
  648:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCS_BASE            (0xE000E000UL)                            /*!< System Control Space Bas
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 14
-
-
  649:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_BASE        (SCS_BASE +  0x0010UL)                    /*!< SysTick Base Address */
  650:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define NVIC_BASE           (SCS_BASE +  0x0100UL)                    /*!< NVIC Base Address */
  651:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_BASE            (SCS_BASE +  0x0D00UL)                    /*!< System Control Block Bas
@@ -803,6 +838,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  668:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   Core Function Interface contains:
  669:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core NVIC Functions
  670:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core SysTick Functions
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 15
+
+
  671:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core Register Access Functions
  672:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  ******************************************************************************/
  673:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
@@ -838,9 +876,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  703:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #define NVIC_GetPriority            __NVIC_GetPriority
  704:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #define NVIC_SystemReset            __NVIC_SystemReset
  705:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #endif /* CMSIS_NVIC_VIRTUAL */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 15
-
-
  706:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  707:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #ifdef CMSIS_VECTAB_VIRTUAL
  708:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #ifndef CMSIS_VECTAB_VIRTUAL_HEADER_FILE
@@ -863,6 +898,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  725:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  726:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* Interrupt Priorities are WORD accessible only under Armv6-M                  */
  727:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* The following MACROS handle generation of the register offset and byte masks */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 16
+
+
  728:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define _BIT_SHIFT(IRQn)         (  ((((uint32_t)(int32_t)(IRQn))         )      &  0x03UL) * 8UL)
  729:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define _SHP_IDX(IRQn)           ( (((((uint32_t)(int32_t)(IRQn)) & 0x0FUL)-8UL) >>    2UL)      )
  730:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define _IP_IDX(IRQn)            (   (((uint32_t)(int32_t)(IRQn))                >>    2UL)      )
@@ -898,9 +936,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  760:mcu-bsp/CMSIS/Include/core_cm0plus.h **** __STATIC_INLINE uint32_t __NVIC_GetEnableIRQ(IRQn_Type IRQn)
  761:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
  762:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 16
-
-
  763:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
  764:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     return((uint32_t)(((NVIC->ISER[0U] & (1UL << (((uint32_t)IRQn) & 0x1FUL))) != 0UL) ? 1UL : 0UL)
  765:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
@@ -918,25 +953,27 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  777:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \note    IRQn must not be negative.
  778:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  779:mcu-bsp/CMSIS/Include/core_cm0plus.h **** __STATIC_INLINE void __NVIC_DisableIRQ(IRQn_Type IRQn)
-  77              		.loc 2 779 22 view .LVU12
-  78              	.LBB22:
+ 106              		.loc 2 779 22 view .LVU22
+ 107              	.LBB40:
  780:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
  781:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
-  79              		.loc 2 781 3 view .LVU13
+ 108              		.loc 2 781 3 view .LVU23
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 17
+
+
  782:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
  783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ICER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
-  80              		.loc 2 783 5 view .LVU14
-  81              		.loc 2 783 20 is_stmt 0 view .LVU15
-  82 000c 084A     		ldr	r2, .L3+4
-  83 000e 8023     		movs	r3, #128
-  84 0010 8021     		movs	r1, #128
-  85 0012 C900     		lsls	r1, r1, #3
-  86 0014 D150     		str	r1, [r2, r3]
+ 109              		.loc 2 783 5 view .LVU24
+ 110              		.loc 2 783 20 is_stmt 0 view .LVU25
+ 111 0028 1D4B     		ldr	r3, .L5+8
+ 112 002a 8022     		movs	r2, #128
+ 113 002c D200     		lsls	r2, r2, #3
+ 114 002e 5A50     		str	r2, [r3, r1]
  784:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
-  87              		.loc 2 784 5 is_stmt 1 view .LVU16
-  88              	.LBB23:
-  89              	.LBI23:
-  90              		.file 3 "mcu-bsp/CMSIS/Include/cmsis_gcc.h"
+ 115              		.loc 2 784 5 is_stmt 1 view .LVU26
+ 116              	.LBB41:
+ 117              	.LBI41:
+ 118              		.file 3 "mcu-bsp/CMSIS/Include/cmsis_gcc.h"
    1:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
    2:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
    3:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
@@ -958,9 +995,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   19:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
   20:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   21:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 17
-
-
   22:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
   23:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
   24:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -984,6 +1018,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   42:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
   43:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
   44:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 18
+
+
   45:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
   46:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
   47:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
@@ -1018,9 +1055,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   76:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
   77:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
   78:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 18
-
-
   79:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   80:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
   81:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -1044,6 +1078,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
   99:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
  100:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
  101:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 19
+
+
  102:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
  103:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
  104:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
@@ -1078,9 +1115,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  133:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   extern void _start(void) __NO_RETURN;
  134:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   
  135:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 19
-
-
  136:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t const* src;
  137:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
  138:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
@@ -1104,6 +1138,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  156:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  
  157:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   for (__zero_table_t const* pTable = &__zero_table_start__; pTable < &__zero_table_end__; ++pTable
  158:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     for(uint32_t i=0u; i<pTable->wlen; ++i) {
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 20
+
+
  159:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****       pTable->dest[i] = 0u;
  160:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     }
  161:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   }
@@ -1138,9 +1175,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  190:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  191:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  192:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 20
-
-
  193:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  194:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
  195:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1164,6 +1198,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  213:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  214:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register
  215:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the Control Register.
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 21
+
+
  216:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               Control Register value
  217:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  218:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_CONTROL(void)
@@ -1198,9 +1235,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  247:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  248:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
  249:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 21
-
-
  250:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
  251:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
  252:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1224,6 +1258,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  270:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               IPSR Register value
  271:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  272:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_IPSR(void)
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 22
+
+
  273:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  274:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  275:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1258,9 +1295,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  304:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
  305:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   return(result);
  306:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 22
-
-
  307:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  308:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  309:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
@@ -1284,6 +1318,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  327:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
  328:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  329:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 23
+
+
  330:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  331:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  332:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1318,9 +1355,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  361:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  362:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  363:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 23
-
-
  364:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer
  365:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer (MSP).
  366:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
@@ -1344,6 +1378,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  384:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  385:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  386:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 24
+
+
  387:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
  388:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   return(result);
  389:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
@@ -1378,9 +1415,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  418:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  419:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Stack Pointer (non-secure)
  420:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Stack Pointer (SP) when in secure state.
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 24
-
-
  421:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               SP Register value
  422:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  423:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void)
@@ -1404,6 +1438,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  441:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
  442:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  443:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 25
+
+
  444:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  445:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Priority Mask
  446:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current state of the priority mask bit from the Priority Mask Register.
@@ -1438,9 +1475,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  475:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Priority Mask
  476:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Priority Mask Register.
  477:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 25
-
-
  478:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  479:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask)
  480:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
@@ -1464,6 +1498,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  498:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
  499:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
  500:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 26
+
+
  501:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  502:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable FIQ
  503:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Enables FIQ interrupts by clearing the F-bit in the CPSR.
@@ -1498,9 +1535,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  532:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri" : "=r" (result) );
  533:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   return(result);
  534:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 26
-
-
  535:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  536:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  537:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
@@ -1524,6 +1558,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  555:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register.
  556:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
  557:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 27
+
+
  558:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri)
  559:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  560:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
@@ -1558,9 +1595,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  589:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  590:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Fault Mask
  591:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Fault Mask register.
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 27
-
-
  592:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
  593:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  594:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void)
@@ -1584,6 +1618,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  612:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  613:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
  614:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 28
+
+
  615:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
  616:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
  617:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1618,9 +1655,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  646:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  647:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
  648:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 28
-
-
  649:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  650:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  651:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit
@@ -1644,6 +1678,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  669:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
  670:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
  671:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 29
+
+
  672:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
  673:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  674:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit (non-secure)
@@ -1678,9 +1715,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  703:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  704:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
  705:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 29
-
-
  706:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
  707:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
  708:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
@@ -1704,6 +1738,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  726:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  727:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
  728:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 30
+
+
  729:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
  730:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #else
  731:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim_ns, %0\n" : : "r" (ProcStackPtrLimit));
@@ -1738,9 +1775,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  760:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
  761:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  762:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit (non-secure)
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 30
-
-
  763:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
  764:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
  765:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1764,6 +1798,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  783:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
  784:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit
  785:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 31
+
+
  786:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
  787:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   mode.
  788:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1798,9 +1835,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  817:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   (void)MainStackPtrLimit;
  818:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #else
  819:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msplim_ns, %0" : : "r" (MainStackPtrLimit));
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 31
-
-
  820:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
  821:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
  822:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
@@ -1824,6 +1858,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  840:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
  841:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   return __builtin_arm_get_fpscr();
  842:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #else
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 32
+
+
  843:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
  844:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  845:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("VMRS %0, fpscr" : "=r" (result) );
@@ -1858,9 +1895,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  874:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
  875:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  876:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 32
-
-
  877:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /*@} end of CMSIS_Core_RegAccFunctions */
  878:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  879:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -1884,6 +1918,9 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  897:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #endif
  898:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
  899:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 33
+
+
  900:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
  901:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
  902:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
@@ -1918,9 +1955,6 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  931:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****            after the instruction has been completed.
  932:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  933:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 33
-
-
  934:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  935:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
  936:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
@@ -1932,680 +1966,1106 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 1
  942:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
  943:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
  944:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DSB(void)
-  91              		.loc 3 944 27 view .LVU17
-  92              	.LBB24:
+ 119              		.loc 3 944 27 view .LVU27
+ 120              	.LBB42:
  945:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
  946:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dsb 0xF":::"memory");
-  93              		.loc 3 946 3 view .LVU18
-  94              		.syntax divided
-  95              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
-  96 0016 BFF34F8F 		dsb 0xF
-  97              	@ 0 "" 2
-  98              		.thumb
-  99              		.syntax unified
- 100              	.LBE24:
- 101              	.LBE23:
+ 121              		.loc 3 946 3 view .LVU28
+ 122              		.syntax divided
+ 123              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 124 0030 BFF34F8F 		dsb 0xF
+ 125              	@ 0 "" 2
+ 126              		.thumb
+ 127              		.syntax unified
+ 128              	.LBE42:
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 34
+
+
+ 129              	.LBE41:
  785:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __ISB();
- 102              		.loc 2 785 5 view .LVU19
- 103              	.LBB25:
- 104              	.LBI25:
+ 130              		.loc 2 785 5 view .LVU29
+ 131              	.LBB43:
+ 132              	.LBI43:
  933:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
- 105              		.loc 3 933 27 view .LVU20
- 106              	.LBB26:
+ 133              		.loc 3 933 27 view .LVU30
+ 134              	.LBB44:
  935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
- 107              		.loc 3 935 3 view .LVU21
- 108              		.syntax divided
- 109              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
- 110 001a BFF36F8F 		isb 0xF
- 111              	@ 0 "" 2
- 112              	.LVL2:
+ 135              		.loc 3 935 3 view .LVU31
+ 136              		.syntax divided
+ 137              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 138 0034 BFF36F8F 		isb 0xF
+ 139              	@ 0 "" 2
+ 140              	.LVL3:
  935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
- 113              		.loc 3 935 3 is_stmt 0 view .LVU22
- 114              		.thumb
- 115              		.syntax unified
- 116              	.LBE26:
- 117              	.LBE25:
- 118              	.LBE22:
- 119              	.LBE21:
-  21:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel3->CCR &= ~(DMA_CCR_EN);
- 120              		.loc 1 21 5 is_stmt 1 view .LVU23
- 121              		.loc 1 21 24 is_stmt 0 view .LVU24
- 122 001e 054A     		ldr	r2, .L3+8
- 123 0020 1368     		ldr	r3, [r2]
- 124 0022 0121     		movs	r1, #1
- 125 0024 8B43     		bics	r3, r1
- 126 0026 1360     		str	r3, [r2]
-  22:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
- 127              		.loc 1 22 1 view .LVU25
- 128              		@ sp needed
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 34
-
-
- 129 0028 7047     		bx	lr
- 130              	.L4:
- 131 002a C046     		.align	2
- 132              	.L3:
- 133 002c 00000240 		.word	1073872896
- 134 0030 00E100E0 		.word	-536813312
- 135 0034 30000240 		.word	1073872944
- 136              		.cfi_endproc
- 137              	.LFE43:
- 139              		.section	.text.VICCOM_uartHandler,"ax",%progbits
- 140              		.align	1
- 141              		.global	VICCOM_uartHandler
- 142              		.syntax unified
- 143              		.code	16
- 144              		.thumb_func
- 145              		.fpu softvfp
- 147              	VICCOM_uartHandler:
- 148              	.LVL3:
- 149              	.LFB44:
-  23:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  24:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_uartHandler(viccom_t *state) {
- 150              		.loc 1 24 42 is_stmt 1 view -0
- 151              		.cfi_startproc
- 152              		@ args = 0, pretend = 0, frame = 0
- 153              		@ frame_needed = 0, uses_anonymous_args = 0
- 154              		.loc 1 24 42 is_stmt 0 view .LVU27
- 155 0000 70B5     		push	{r4, r5, r6, lr}
- 156              	.LCFI0:
- 157              		.cfi_def_cfa_offset 16
- 158              		.cfi_offset 4, -16
- 159              		.cfi_offset 5, -12
- 160              		.cfi_offset 6, -8
- 161              		.cfi_offset 14, -4
-  25:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     if(state->txBusy) {
- 162              		.loc 1 25 5 is_stmt 1 view .LVU28
- 163              		.loc 1 25 13 is_stmt 0 view .LVU29
- 164 0002 0378     		ldrb	r3, [r0]
- 165              		.loc 1 25 7 view .LVU30
- 166 0004 002B     		cmp	r3, #0
- 167 0006 07D0     		beq	.L6
-  26:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         state->txBusy = 0;
- 168              		.loc 1 26 9 is_stmt 1 view .LVU31
- 169              		.loc 1 26 23 is_stmt 0 view .LVU32
- 170 0008 0023     		movs	r3, #0
- 171 000a 0370     		strb	r3, [r0]
-  27:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         LPUART1->ICR |= USART_ICR_TCCF;
- 172              		.loc 1 27 9 is_stmt 1 view .LVU33
- 173              		.loc 1 27 22 is_stmt 0 view .LVU34
- 174 000c 2B4A     		ldr	r2, .L9
- 175 000e 136A     		ldr	r3, [r2, #32]
- 176 0010 4021     		movs	r1, #64
- 177 0012 0B43     		orrs	r3, r1
- 178 0014 1362     		str	r3, [r2, #32]
- 179              	.LVL4:
- 180              	.L5:
+ 141              		.loc 3 935 3 is_stmt 0 view .LVU32
+ 142              		.thumb
+ 143              		.syntax unified
+ 144              	.LBE44:
+ 145              	.LBE43:
+ 146              	.LBE40:
+ 147              	.LBE39:
+  27:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         DMA1_Channel2->CCR &= ~(DMA_CCR_EN);
+ 148              		.loc 1 27 9 is_stmt 1 view .LVU33
+ 149              		.loc 1 27 28 is_stmt 0 view .LVU34
+ 150 0038 1A4A     		ldr	r2, .L5+12
+ 151 003a 1368     		ldr	r3, [r2]
+ 152 003c 7F39     		subs	r1, r1, #127
+ 153 003e 8B43     		bics	r3, r1
+ 154 0040 1360     		str	r3, [r2]
+ 155              	.L2:
   28:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     } else {
-  29:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         uint16_t data = LPUART1->RDR;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 35
+  29:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //clear RDR flag
+  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->RQR |= USART_RQR_RXFRQ;
+  31:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //clear interrupt flags
+  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1->IFCR |= 0x700;
+  33:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->ICR |= USART_ICR_TCCF;
+  34:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //disable dma for the time being due to successful payload received. 
+  35:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR3 &= ~(USART_CR3_DMAR);
+  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_DisableIRQ(DMA1_Channel2_3_IRQn);
+  37:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel3->CCR &= ~(DMA_CCR_EN);
+  38:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  39:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //re enable lpuart for receiving purposes
+  40:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR1 |= USART_CR1_RXNEIE;
+  41:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_EnableIRQ(LPUART1_IRQn);
+  42:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  43:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //reset state to waiting for address
+  44:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->currentState = STATE_WAITING_FOR_ADDRESS;
+  45:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     }
+  46:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
+ 156              		.loc 1 46 1 view .LVU35
+ 157              		@ sp needed
+ 158 0042 30BD     		pop	{r4, r5, pc}
+ 159              	.L3:
+  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //clear interrupt flags
+ 160              		.loc 1 30 5 is_stmt 1 view .LVU36
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 35
 
 
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
-  31:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
-  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             if((data & 0xff) == state->address) {
-  33:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
-  34:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_LENGTH;
-  35:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         } else if (state->currentState == STATE_WAITING_FOR_LENGTH && !(data & 0x100)) {
-  37:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
-  38:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->rxLength = data & 0xff;
-  39:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
-  40:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  41:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //disable interrupt
-  42:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_DisableIRQ(LPUART1_IRQn);
-  43:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR1 &= ~(USART_CR1_RXNEIE);
-  44:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  45:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // //enable HAL DMA stuff
-  46:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // HAL_UART_Receive_DMA(&hlpuart1, state->rxData, 2);
-  47:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  48:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA stuff
-  49:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //map dma channel to LPUART rx, or 0x500
-  50:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR |=  0x500;
-  51:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
-  52:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
-  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CPAR = (uint32_t)&LPUART1->RDR;
-  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
-  55:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CMAR = (uint32_t)&state->rxData;
-  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
-  57:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CNDTR = 2;
-  58:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
-  59:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_TCIE;
-  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable HTIE
-  61:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // DMA1_Channel3->CCR |= DMA_CCR_HTIE;
-  62:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set direction to 0 (peripheral to memory)
-  63:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR &= ~(DMA_CCR_DIR);
-  64:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
-  65:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_MINC_ENABLE;
-  66:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
-  67:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR3 |= USART_CR3_DMAR;
-  68:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
-  69:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_EN;
-  70:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  71:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  72:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         }
-  73:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     }
-  74:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  75:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return;
-  76:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  77:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  78:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
- 181              		.loc 1 78 1 view .LVU35
- 182              		@ sp needed
- 183 0016 70BD     		pop	{r4, r5, r6, pc}
- 184              	.LVL5:
- 185              	.L6:
- 186              	.LBB27:
-  29:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
- 187              		.loc 1 29 9 is_stmt 1 view .LVU36
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 36
-
-
-  29:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
- 188              		.loc 1 29 32 is_stmt 0 view .LVU37
- 189 0018 284B     		ldr	r3, .L9
- 190 001a 5A6A     		ldr	r2, [r3, #36]
- 191              	.LVL6:
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
- 192              		.loc 1 30 9 is_stmt 1 view .LVU38
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
- 193              		.loc 1 30 17 is_stmt 0 view .LVU39
- 194 001c 437C     		ldrb	r3, [r0, #17]
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
- 195              		.loc 1 30 11 view .LVU40
- 196 001e 002B     		cmp	r3, #0
- 197 0020 0BD1     		bne	.L8
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
- 198              		.loc 1 30 69 discriminator 1 view .LVU41
- 199 0022 1104     		lsls	r1, r2, #16
- 200 0024 0C0C     		lsrs	r4, r1, #16
-  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
- 201              		.loc 1 30 61 discriminator 1 view .LVU42
- 202 0026 C901     		lsls	r1, r1, #7
- 203 0028 07D5     		bpl	.L8
-  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
- 204              		.loc 1 32 13 is_stmt 1 view .LVU43
-  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
- 205              		.loc 1 32 22 is_stmt 0 view .LVU44
- 206 002a FF33     		adds	r3, r3, #255
- 207 002c 2340     		ands	r3, r4
-  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
- 208              		.loc 1 32 38 view .LVU45
- 209 002e 4278     		ldrb	r2, [r0, #1]
- 210              	.LVL7:
-  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
- 211              		.loc 1 32 15 view .LVU46
- 212 0030 9342     		cmp	r3, r2
- 213 0032 F0D1     		bne	.L5
-  34:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
- 214              		.loc 1 34 13 is_stmt 1 view .LVU47
-  34:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
- 215              		.loc 1 34 33 is_stmt 0 view .LVU48
- 216 0034 0123     		movs	r3, #1
- 217 0036 4374     		strb	r3, [r0, #17]
- 218 0038 EDE7     		b	.L5
- 219              	.LVL8:
- 220              	.L8:
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
- 221              		.loc 1 36 16 is_stmt 1 view .LVU49
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
- 222              		.loc 1 36 19 is_stmt 0 view .LVU50
- 223 003a 012B     		cmp	r3, #1
- 224 003c EBD1     		bne	.L5
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
- 225              		.loc 1 36 78 discriminator 1 view .LVU51
- 226 003e 1204     		lsls	r2, r2, #16
- 227              	.LVL9:
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
- 228              		.loc 1 36 78 discriminator 1 view .LVU52
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 37
-
-
- 229 0040 110C     		lsrs	r1, r2, #16
-  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
- 230              		.loc 1 36 68 discriminator 1 view .LVU53
- 231 0042 D301     		lsls	r3, r2, #7
- 232 0044 E7D4     		bmi	.L5
-  38:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
- 233              		.loc 1 38 13 is_stmt 1 view .LVU54
-  38:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
- 234              		.loc 1 38 36 is_stmt 0 view .LVU55
- 235 0046 FF23     		movs	r3, #255
- 236 0048 0B40     		ands	r3, r1
-  38:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
- 237              		.loc 1 38 29 view .LVU56
- 238 004a C360     		str	r3, [r0, #12]
-  39:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 239              		.loc 1 39 13 is_stmt 1 view .LVU57
-  39:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 240              		.loc 1 39 33 is_stmt 0 view .LVU58
- 241 004c 0423     		movs	r3, #4
- 242 004e 4374     		strb	r3, [r0, #17]
-  42:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR1 &= ~(USART_CR1_RXNEIE);
- 243              		.loc 1 42 13 is_stmt 1 view .LVU59
- 244              	.LVL10:
- 245              	.LBB28:
- 246              	.LBI28:
+  30:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //clear interrupt flags
+ 161              		.loc 1 30 18 is_stmt 0 view .LVU37
+ 162 0044 154B     		ldr	r3, .L5+4
+ 163 0046 9A69     		ldr	r2, [r3, #24]
+ 164 0048 0821     		movs	r1, #8
+ 165 004a 0A43     		orrs	r2, r1
+ 166 004c 9A61     		str	r2, [r3, #24]
+  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->ICR |= USART_ICR_TCCF;
+ 167              		.loc 1 32 5 is_stmt 1 view .LVU38
+  32:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->ICR |= USART_ICR_TCCF;
+ 168              		.loc 1 32 16 is_stmt 0 view .LVU39
+ 169 004e 1249     		ldr	r1, .L5
+ 170 0050 4C68     		ldr	r4, [r1, #4]
+ 171 0052 E022     		movs	r2, #224
+ 172 0054 D200     		lsls	r2, r2, #3
+ 173 0056 2243     		orrs	r2, r4
+ 174 0058 4A60     		str	r2, [r1, #4]
+  33:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //disable dma for the time being due to successful payload received. 
+ 175              		.loc 1 33 5 is_stmt 1 view .LVU40
+  33:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //disable dma for the time being due to successful payload received. 
+ 176              		.loc 1 33 18 is_stmt 0 view .LVU41
+ 177 005a 1A6A     		ldr	r2, [r3, #32]
+ 178 005c 4021     		movs	r1, #64
+ 179 005e 0A43     		orrs	r2, r1
+ 180 0060 1A62     		str	r2, [r3, #32]
+  35:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_DisableIRQ(DMA1_Channel2_3_IRQn);
+ 181              		.loc 1 35 5 is_stmt 1 view .LVU42
+  35:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_DisableIRQ(DMA1_Channel2_3_IRQn);
+ 182              		.loc 1 35 18 is_stmt 0 view .LVU43
+ 183 0062 9A68     		ldr	r2, [r3, #8]
+ 184 0064 8A43     		bics	r2, r1
+ 185 0066 9A60     		str	r2, [r3, #8]
+  36:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel3->CCR &= ~(DMA_CCR_EN);
+ 186              		.loc 1 36 5 is_stmt 1 view .LVU44
+ 187              	.LVL4:
+ 188              	.LBB45:
+ 189              	.LBI45:
  779:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
- 247              		.loc 2 779 22 view .LVU60
- 248              	.LBB29:
+ 190              		.loc 2 779 22 view .LVU45
+ 191              	.LBB46:
  781:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
- 249              		.loc 2 781 3 view .LVU61
+ 192              		.loc 2 781 3 view .LVU46
  783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
- 250              		.loc 2 783 5 view .LVU62
+ 193              		.loc 2 783 5 view .LVU47
  783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
- 251              		.loc 2 783 20 is_stmt 0 view .LVU63
- 252 0050 1B4C     		ldr	r4, .L9+4
- 253 0052 8026     		movs	r6, #128
- 254 0054 8023     		movs	r3, #128
- 255 0056 9B05     		lsls	r3, r3, #22
- 256 0058 A351     		str	r3, [r4, r6]
+ 194              		.loc 2 783 20 is_stmt 0 view .LVU48
+ 195 0068 0D49     		ldr	r1, .L5+8
+ 196 006a 8022     		movs	r2, #128
+ 197 006c 8024     		movs	r4, #128
+ 198 006e E400     		lsls	r4, r4, #3
+ 199 0070 8C50     		str	r4, [r1, r2]
  784:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __ISB();
- 257              		.loc 2 784 5 is_stmt 1 view .LVU64
- 258              	.LBB30:
- 259              	.LBI30:
+ 200              		.loc 2 784 5 is_stmt 1 view .LVU49
+ 201              	.LBB47:
+ 202              	.LBI47:
  944:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
- 260              		.loc 3 944 27 view .LVU65
- 261              	.LBB31:
- 262              		.loc 3 946 3 view .LVU66
- 263              		.syntax divided
- 264              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
- 265 005a BFF34F8F 		dsb 0xF
- 266              	@ 0 "" 2
- 267              		.thumb
- 268              		.syntax unified
- 269              	.LBE31:
- 270              	.LBE30:
- 271              		.loc 2 785 5 view .LVU67
- 272              	.LBB32:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 38
+ 203              		.loc 3 944 27 view .LVU50
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 36
 
 
- 273              	.LBI32:
+ 204              	.LBB48:
+ 205              		.loc 3 946 3 view .LVU51
+ 206              		.syntax divided
+ 207              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 208 0072 BFF34F8F 		dsb 0xF
+ 209              	@ 0 "" 2
+ 210              		.thumb
+ 211              		.syntax unified
+ 212              	.LBE48:
+ 213              	.LBE47:
+ 214              		.loc 2 785 5 view .LVU52
+ 215              	.LBB49:
+ 216              	.LBI49:
  933:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
- 274              		.loc 3 933 27 view .LVU68
- 275              	.LBB33:
+ 217              		.loc 3 933 27 view .LVU53
+ 218              	.LBB50:
  935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
- 276              		.loc 3 935 3 view .LVU69
- 277              		.syntax divided
- 278              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
- 279 005e BFF36F8F 		isb 0xF
- 280              	@ 0 "" 2
- 281              	.LVL11:
+ 219              		.loc 3 935 3 view .LVU54
+ 220              		.syntax divided
+ 221              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 222 0076 BFF36F8F 		isb 0xF
+ 223              	@ 0 "" 2
+ 224              	.LVL5:
  935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
- 282              		.loc 3 935 3 is_stmt 0 view .LVU70
- 283              		.thumb
- 284              		.syntax unified
- 285              	.LBE33:
- 286              	.LBE32:
- 287              	.LBE29:
- 288              	.LBE28:
-  43:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 289              		.loc 1 43 13 is_stmt 1 view .LVU71
-  43:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 290              		.loc 1 43 26 is_stmt 0 view .LVU72
- 291 0062 164A     		ldr	r2, .L9
- 292 0064 1368     		ldr	r3, [r2]
- 293 0066 2021     		movs	r1, #32
- 294 0068 8B43     		bics	r3, r1
- 295 006a 1360     		str	r3, [r2]
-  50:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
- 296              		.loc 1 50 13 is_stmt 1 view .LVU73
-  50:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
- 297              		.loc 1 50 31 is_stmt 0 view .LVU74
- 298 006c 154B     		ldr	r3, .L9+8
- 299 006e 1D68     		ldr	r5, [r3]
- 300 0070 A021     		movs	r1, #160
- 301 0072 C900     		lsls	r1, r1, #3
- 302 0074 2943     		orrs	r1, r5
- 303 0076 1960     		str	r1, [r3]
-  51:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
- 304              		.loc 1 51 13 is_stmt 1 view .LVU75
-  51:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
- 305              		.loc 1 51 31 is_stmt 0 view .LVU76
- 306 0078 1D68     		ldr	r5, [r3]
- 307 007a 1349     		ldr	r1, .L9+12
- 308 007c 0D40     		ands	r5, r1
- 309 007e 1D60     		str	r5, [r3]
-  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
- 310              		.loc 1 53 13 is_stmt 1 view .LVU77
-  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
- 311              		.loc 1 53 33 is_stmt 0 view .LVU78
- 312 0080 124B     		ldr	r3, .L9+16
- 313 0082 1349     		ldr	r1, .L9+20
- 314 0084 9960     		str	r1, [r3, #8]
-  55:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
- 315              		.loc 1 55 13 is_stmt 1 view .LVU79
-  55:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
- 316              		.loc 1 55 45 is_stmt 0 view .LVU80
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 39
-
-
- 317 0086 0830     		adds	r0, r0, #8
- 318              	.LVL12:
-  55:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
- 319              		.loc 1 55 33 view .LVU81
- 320 0088 D860     		str	r0, [r3, #12]
-  57:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
- 321              		.loc 1 57 13 is_stmt 1 view .LVU82
-  57:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
- 322              		.loc 1 57 34 is_stmt 0 view .LVU83
- 323 008a 0221     		movs	r1, #2
- 324 008c 5960     		str	r1, [r3, #4]
-  59:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable HTIE
- 325              		.loc 1 59 13 is_stmt 1 view .LVU84
-  59:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable HTIE
- 326              		.loc 1 59 32 is_stmt 0 view .LVU85
- 327 008e 1868     		ldr	r0, [r3]
- 328              	.LVL13:
-  59:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable HTIE
- 329              		.loc 1 59 32 view .LVU86
- 330 0090 0843     		orrs	r0, r1
- 331 0092 1860     		str	r0, [r3]
-  63:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
- 332              		.loc 1 63 13 is_stmt 1 view .LVU87
-  63:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
- 333              		.loc 1 63 32 is_stmt 0 view .LVU88
- 334 0094 1868     		ldr	r0, [r3]
- 335 0096 0E31     		adds	r1, r1, #14
- 336 0098 8843     		bics	r0, r1
- 337 009a 1860     		str	r0, [r3]
-  65:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
- 338              		.loc 1 65 13 is_stmt 1 view .LVU89
-  65:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
- 339              		.loc 1 65 32 is_stmt 0 view .LVU90
- 340 009c 1968     		ldr	r1, [r3]
- 341 009e 3143     		orrs	r1, r6
- 342 00a0 1960     		str	r1, [r3]
-  67:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
- 343              		.loc 1 67 13 is_stmt 1 view .LVU91
-  67:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
- 344              		.loc 1 67 26 is_stmt 0 view .LVU92
- 345 00a2 9168     		ldr	r1, [r2, #8]
- 346 00a4 4020     		movs	r0, #64
- 347 00a6 0143     		orrs	r1, r0
- 348 00a8 9160     		str	r1, [r2, #8]
-  68:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_EN;
- 349              		.loc 1 68 13 is_stmt 1 view .LVU93
- 350              	.LVL14:
- 351              	.LBB34:
- 352              	.LBI34:
+ 225              		.loc 3 935 3 is_stmt 0 view .LVU55
+ 226              		.thumb
+ 227              		.syntax unified
+ 228              	.LBE50:
+ 229              	.LBE49:
+ 230              	.LBE46:
+ 231              	.LBE45:
+  37:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 232              		.loc 1 37 5 is_stmt 1 view .LVU56
+  37:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 233              		.loc 1 37 24 is_stmt 0 view .LVU57
+ 234 007a 0B4C     		ldr	r4, .L5+16
+ 235 007c 2268     		ldr	r2, [r4]
+ 236 007e 0125     		movs	r5, #1
+ 237 0080 AA43     		bics	r2, r5
+ 238 0082 2260     		str	r2, [r4]
+  40:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_EnableIRQ(LPUART1_IRQn);
+ 239              		.loc 1 40 5 is_stmt 1 view .LVU58
+  40:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_EnableIRQ(LPUART1_IRQn);
+ 240              		.loc 1 40 18 is_stmt 0 view .LVU59
+ 241 0084 1A68     		ldr	r2, [r3]
+ 242 0086 2024     		movs	r4, #32
+ 243 0088 2243     		orrs	r2, r4
+ 244 008a 1A60     		str	r2, [r3]
+  41:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 245              		.loc 1 41 5 is_stmt 1 view .LVU60
+ 246              	.LVL6:
+ 247              	.LBB51:
+ 248              	.LBI51:
  741:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
- 353              		.loc 2 741 22 view .LVU94
- 354              	.LBB35:
+ 249              		.loc 2 741 22 view .LVU61
+ 250              	.LBB52:
  743:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
- 355              		.loc 2 743 3 view .LVU95
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 37
+
+
+ 251              		.loc 2 743 3 view .LVU62
  745:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
- 356              		.loc 2 745 5 view .LVU96
+ 252              		.loc 2 745 5 view .LVU63
  746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 40
-
-
- 357              		.loc 2 746 5 view .LVU97
+ 253              		.loc 2 746 5 view .LVU64
  746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
- 358              		.loc 2 746 20 is_stmt 0 view .LVU98
- 359 00aa 8022     		movs	r2, #128
- 360 00ac D200     		lsls	r2, r2, #3
- 361 00ae 2260     		str	r2, [r4]
+ 254              		.loc 2 746 20 is_stmt 0 view .LVU65
+ 255 008c 8023     		movs	r3, #128
+ 256 008e 9B05     		lsls	r3, r3, #22
+ 257 0090 0B60     		str	r3, [r1]
  747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
- 362              		.loc 2 747 5 is_stmt 1 view .LVU99
- 363              	.LVL15:
+ 258              		.loc 2 747 5 is_stmt 1 view .LVU66
+ 259              	.LVL7:
  747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
- 364              		.loc 2 747 5 is_stmt 0 view .LVU100
- 365              	.LBE35:
- 366              	.LBE34:
-  69:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 367              		.loc 1 69 13 is_stmt 1 view .LVU101
-  69:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 368              		.loc 1 69 32 is_stmt 0 view .LVU102
- 369 00b0 1A68     		ldr	r2, [r3]
- 370 00b2 0121     		movs	r1, #1
- 371 00b4 0A43     		orrs	r2, r1
- 372 00b6 1A60     		str	r2, [r3]
- 373              	.LBE27:
-  75:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 374              		.loc 1 75 5 is_stmt 1 view .LVU103
- 375 00b8 ADE7     		b	.L5
- 376              	.L10:
- 377 00ba C046     		.align	2
- 378              	.L9:
- 379 00bc 00480040 		.word	1073760256
- 380 00c0 00E100E0 		.word	-536813312
- 381 00c4 A8000240 		.word	1073873064
- 382 00c8 FFF5FFFF 		.word	-2561
- 383 00cc 30000240 		.word	1073872944
- 384 00d0 24480040 		.word	1073760292
- 385              		.cfi_endproc
- 386              	.LFE44:
- 388              		.section	.text.VICCOM_send,"ax",%progbits
- 389              		.align	1
- 390              		.global	VICCOM_send
- 391              		.syntax unified
- 392              		.code	16
- 393              		.thumb_func
- 394              		.fpu softvfp
- 396              	VICCOM_send:
- 397              	.LVL16:
- 398              	.LFB45:
-  79:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  80:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  81:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_send(viccom_t* state, uint8_t* data, int len) {
- 399              		.loc 1 81 59 view -0
- 400              		.cfi_startproc
- 401              		@ args = 0, pretend = 0, frame = 0
- 402              		@ frame_needed = 0, uses_anonymous_args = 0
- 403              		.loc 1 81 59 is_stmt 0 view .LVU105
- 404 0000 10B5     		push	{r4, lr}
- 405              	.LCFI1:
- 406              		.cfi_def_cfa_offset 8
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 41
+ 260              		.loc 2 747 5 is_stmt 0 view .LVU67
+ 261              	.LBE52:
+ 262              	.LBE51:
+  44:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     }
+ 263              		.loc 1 44 5 is_stmt 1 view .LVU68
+  44:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     }
+ 264              		.loc 1 44 25 is_stmt 0 view .LVU69
+ 265 0092 0023     		movs	r3, #0
+ 266 0094 4374     		strb	r3, [r0, #17]
+ 267              		.loc 1 46 1 view .LVU70
+ 268 0096 D4E7     		b	.L2
+ 269              	.L6:
+ 270              		.align	2
+ 271              	.L5:
+ 272 0098 00000240 		.word	1073872896
+ 273 009c 00480040 		.word	1073760256
+ 274 00a0 00E100E0 		.word	-536813312
+ 275 00a4 1C000240 		.word	1073872924
+ 276 00a8 30000240 		.word	1073872944
+ 277              		.cfi_endproc
+ 278              	.LFE43:
+ 280              		.section	.text.VICCOM_uartHandler,"ax",%progbits
+ 281              		.align	1
+ 282              		.global	VICCOM_uartHandler
+ 283              		.syntax unified
+ 284              		.code	16
+ 285              		.thumb_func
+ 286              		.fpu softvfp
+ 288              	VICCOM_uartHandler:
+ 289              	.LVL8:
+ 290              	.LFB44:
+  47:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  48:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_uartHandler(viccom_t *state) {
+ 291              		.loc 1 48 42 is_stmt 1 view -0
+ 292              		.cfi_startproc
+ 293              		@ args = 0, pretend = 0, frame = 0
+ 294              		@ frame_needed = 0, uses_anonymous_args = 0
+ 295              		.loc 1 48 42 is_stmt 0 view .LVU72
+ 296 0000 70B5     		push	{r4, r5, r6, lr}
+ 297              	.LCFI1:
+ 298              		.cfi_def_cfa_offset 16
+ 299              		.cfi_offset 4, -16
+ 300              		.cfi_offset 5, -12
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 38
 
 
- 407              		.cfi_offset 4, -8
- 408              		.cfi_offset 14, -4
-  82:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     uint16_t transmitAddress = state->address | 0x100;
- 409              		.loc 1 82 5 is_stmt 1 view .LVU106
- 410              		.loc 1 82 37 is_stmt 0 view .LVU107
- 411 0002 4378     		ldrb	r3, [r0, #1]
- 412              		.loc 1 82 14 view .LVU108
- 413 0004 8022     		movs	r2, #128
- 414              	.LVL17:
- 415              		.loc 1 82 14 view .LVU109
- 416 0006 5200     		lsls	r2, r2, #1
- 417 0008 1A43     		orrs	r2, r3
- 418              	.LVL18:
-  83:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->ICR |= USART_ICR_TCCF;
- 419              		.loc 1 83 5 is_stmt 1 view .LVU110
- 420              		.loc 1 83 18 is_stmt 0 view .LVU111
- 421 000a 0F4B     		ldr	r3, .L16
- 422 000c 196A     		ldr	r1, [r3, #32]
- 423              	.LVL19:
- 424              		.loc 1 83 18 view .LVU112
- 425 000e 4024     		movs	r4, #64
- 426 0010 2143     		orrs	r1, r4
- 427 0012 1962     		str	r1, [r3, #32]
-  84:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR1 |= USART_CR1_TCIE;
- 428              		.loc 1 84 5 is_stmt 1 view .LVU113
- 429              		.loc 1 84 18 is_stmt 0 view .LVU114
- 430 0014 1968     		ldr	r1, [r3]
- 431 0016 2143     		orrs	r1, r4
- 432 0018 1960     		str	r1, [r3]
-  85:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //set tx to busy. IS THIS THE RIGHT PLACE???????!!!!!!
-  86:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->txBusy = 1;
- 433              		.loc 1 86 5 is_stmt 1 view .LVU115
- 434              		.loc 1 86 19 is_stmt 0 view .LVU116
- 435 001a 0121     		movs	r1, #1
- 436 001c 0170     		strb	r1, [r0]
-  87:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->TDR = transmitAddress;
- 437              		.loc 1 87 5 is_stmt 1 view .LVU117
- 438              		.loc 1 87 18 is_stmt 0 view .LVU118
- 439 001e 9A62     		str	r2, [r3, #40]
-  88:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  89:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     while((LPUART1->ISR & USART_ISR_TC) || state->txBusy) {}; 
- 440              		.loc 1 89 5 is_stmt 1 view .LVU119
- 441              	.L12:
- 442              		.loc 1 89 60 discriminator 3 view .LVU120
- 443              		.loc 1 89 10 discriminator 3 view .LVU121
- 444              		.loc 1 89 19 is_stmt 0 discriminator 3 view .LVU122
- 445 0020 094B     		ldr	r3, .L16
- 446 0022 DB69     		ldr	r3, [r3, #28]
- 447              		.loc 1 89 10 discriminator 3 view .LVU123
- 448 0024 5B06     		lsls	r3, r3, #25
- 449 0026 FBD4     		bmi	.L12
- 450              		.loc 1 89 49 discriminator 2 view .LVU124
- 451 0028 0378     		ldrb	r3, [r0]
- 452              		.loc 1 89 41 discriminator 2 view .LVU125
- 453 002a 002B     		cmp	r3, #0
- 454 002c F8D1     		bne	.L12
- 455              		.loc 1 89 61 is_stmt 1 discriminator 4 view .LVU126
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 42
+ 301              		.cfi_offset 6, -8
+ 302              		.cfi_offset 14, -4
+  49:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     if(state->txBusy) {
+ 303              		.loc 1 49 5 is_stmt 1 view .LVU73
+ 304              		.loc 1 49 13 is_stmt 0 view .LVU74
+ 305 0002 0378     		ldrb	r3, [r0]
+ 306              		.loc 1 49 7 view .LVU75
+ 307 0004 002B     		cmp	r3, #0
+ 308 0006 07D0     		beq	.L8
+  50:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         state->txBusy = 0;
+ 309              		.loc 1 50 9 is_stmt 1 view .LVU76
+ 310              		.loc 1 50 23 is_stmt 0 view .LVU77
+ 311 0008 0023     		movs	r3, #0
+ 312 000a 0370     		strb	r3, [r0]
+  51:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         LPUART1->ICR |= USART_ICR_TCCF;
+ 313              		.loc 1 51 9 is_stmt 1 view .LVU78
+ 314              		.loc 1 51 22 is_stmt 0 view .LVU79
+ 315 000c 2B4A     		ldr	r2, .L11
+ 316 000e 136A     		ldr	r3, [r2, #32]
+ 317 0010 4021     		movs	r1, #64
+ 318 0012 0B43     		orrs	r3, r1
+ 319 0014 1362     		str	r3, [r2, #32]
+ 320              	.LVL9:
+ 321              	.L7:
+  52:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     } else {
+  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         uint16_t data = LPUART1->RDR;
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
+  55:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             if((data & 0xff) == state->address) {
+  57:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
+  58:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_LENGTH;
+  59:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         } else if (state->currentState == STATE_WAITING_FOR_LENGTH && !(data & 0x100)) {
+  61:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+  62:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->rxLength = data & 0xff;
+  63:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
+  64:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  65:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //disable lpuart interrupt
+  66:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_DisableIRQ(LPUART1_IRQn);
+  67:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR1 &= ~(USART_CR1_RXNEIE);
+  68:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  69:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // //enable HAL DMA stuff
+  70:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // HAL_UART_Receive_DMA(&hlpuart1, state->rxData, 2);
+  71:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  72:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA stuff
+  73:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //map dma channel to LPUART rx, or 0x500
+  74:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR |=  0x500;
+  75:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
+  76:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
+  77:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CPAR = (uint32_t)&LPUART1->RDR;
+  78:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
+  79:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CMAR = (uint32_t)&state->rxData;
+  80:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
+  81:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CNDTR = 2;
+  82:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
+  83:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_TCIE;
+  84:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set direction to 0 (peripheral to memory)
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 39
 
 
-  90:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  91:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     uint16_t transmitLength = 0x03 | 0x000;
- 456              		.loc 1 91 5 discriminator 4 view .LVU127
- 457              	.LVL20:
-  92:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->txBusy = 1;
- 458              		.loc 1 92 5 discriminator 4 view .LVU128
- 459              		.loc 1 92 19 is_stmt 0 discriminator 4 view .LVU129
- 460 002e 0133     		adds	r3, r3, #1
- 461 0030 0370     		strb	r3, [r0]
-  93:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->TDR = transmitLength;
- 462              		.loc 1 93 5 is_stmt 1 discriminator 4 view .LVU130
- 463              		.loc 1 93 18 is_stmt 0 discriminator 4 view .LVU131
- 464 0032 054B     		ldr	r3, .L16
- 465 0034 0322     		movs	r2, #3
- 466              	.LVL21:
- 467              		.loc 1 93 18 discriminator 4 view .LVU132
- 468 0036 9A62     		str	r2, [r3, #40]
-  94:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  95:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     while((LPUART1->ISR & USART_ISR_TC) || state->txBusy) {}; 
- 469              		.loc 1 95 5 is_stmt 1 discriminator 4 view .LVU133
- 470              	.L14:
- 471              		.loc 1 95 60 discriminator 3 view .LVU134
- 472              		.loc 1 95 10 discriminator 3 view .LVU135
- 473              		.loc 1 95 19 is_stmt 0 discriminator 3 view .LVU136
- 474 0038 034B     		ldr	r3, .L16
- 475 003a DB69     		ldr	r3, [r3, #28]
- 476              		.loc 1 95 10 discriminator 3 view .LVU137
- 477 003c 5B06     		lsls	r3, r3, #25
- 478 003e FBD4     		bmi	.L14
- 479              		.loc 1 95 49 discriminator 2 view .LVU138
- 480 0040 0378     		ldrb	r3, [r0]
- 481              		.loc 1 95 41 discriminator 2 view .LVU139
- 482 0042 002B     		cmp	r3, #0
- 483 0044 F8D1     		bne	.L14
+  85:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR &= ~(DMA_CCR_DIR);
+  86:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
+  87:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_MINC_ENABLE;
+  88:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
+  89:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR3 |= USART_CR3_DMAR;
+  90:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+  91:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_EN;
+  92:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  93:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  94:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         }
+  95:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     }
   96:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  97:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return;
+  98:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+  99:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 100:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
+ 322              		.loc 1 100 1 view .LVU80
+ 323              		@ sp needed
+ 324 0016 70BD     		pop	{r4, r5, r6, pc}
+ 325              	.LVL10:
+ 326              	.L8:
+ 327              	.LBB53:
+  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
+ 328              		.loc 1 53 9 is_stmt 1 view .LVU81
+  53:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         if(state->currentState == STATE_WAITING_FOR_ADDRESS && data & 0x100) {
+ 329              		.loc 1 53 32 is_stmt 0 view .LVU82
+ 330 0018 284B     		ldr	r3, .L11
+ 331 001a 5A6A     		ldr	r2, [r3, #36]
+ 332              	.LVL11:
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+ 333              		.loc 1 54 9 is_stmt 1 view .LVU83
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+ 334              		.loc 1 54 17 is_stmt 0 view .LVU84
+ 335 001c 437C     		ldrb	r3, [r0, #17]
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+ 336              		.loc 1 54 11 view .LVU85
+ 337 001e 002B     		cmp	r3, #0
+ 338 0020 0BD1     		bne	.L10
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+ 339              		.loc 1 54 69 discriminator 1 view .LVU86
+ 340 0022 1104     		lsls	r1, r2, #16
+ 341 0024 0C0C     		lsrs	r4, r1, #16
+  54:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // we received an address byte
+ 342              		.loc 1 54 61 discriminator 1 view .LVU87
+ 343 0026 C901     		lsls	r1, r1, #7
+ 344 0028 07D5     		bpl	.L10
+  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
+ 345              		.loc 1 56 13 is_stmt 1 view .LVU88
+  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
+ 346              		.loc 1 56 22 is_stmt 0 view .LVU89
+ 347 002a FF33     		adds	r3, r3, #255
+ 348 002c 2340     		ands	r3, r4
+  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
+ 349              		.loc 1 56 38 view .LVU90
+ 350 002e 4278     		ldrb	r2, [r0, #1]
+ 351              	.LVL12:
+  56:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             // this is a packet for us
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 40
+
+
+ 352              		.loc 1 56 15 view .LVU91
+ 353 0030 9342     		cmp	r3, r2
+ 354 0032 F0D1     		bne	.L7
+  58:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
+ 355              		.loc 1 58 13 is_stmt 1 view .LVU92
+  58:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             } 
+ 356              		.loc 1 58 33 is_stmt 0 view .LVU93
+ 357 0034 0123     		movs	r3, #1
+ 358 0036 4374     		strb	r3, [r0, #17]
+ 359 0038 EDE7     		b	.L7
+ 360              	.LVL13:
+ 361              	.L10:
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+ 362              		.loc 1 60 16 is_stmt 1 view .LVU94
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+ 363              		.loc 1 60 19 is_stmt 0 view .LVU95
+ 364 003a 012B     		cmp	r3, #1
+ 365 003c EBD1     		bne	.L7
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+ 366              		.loc 1 60 78 discriminator 1 view .LVU96
+ 367 003e 1204     		lsls	r2, r2, #16
+ 368              	.LVL14:
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+ 369              		.loc 1 60 78 discriminator 1 view .LVU97
+ 370 0040 110C     		lsrs	r1, r2, #16
+  60:mcu-bsp/lib/src/viccom_stm32l0xx.c ****         // this is a length value with correct address bit
+ 371              		.loc 1 60 68 discriminator 1 view .LVU98
+ 372 0042 D301     		lsls	r3, r2, #7
+ 373 0044 E7D4     		bmi	.L7
+  62:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
+ 374              		.loc 1 62 13 is_stmt 1 view .LVU99
+  62:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
+ 375              		.loc 1 62 36 is_stmt 0 view .LVU100
+ 376 0046 FF23     		movs	r3, #255
+ 377 0048 0B40     		ands	r3, r1
+  62:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             state->currentState = STATE_WAITING_FOR_DMA_DONE;
+ 378              		.loc 1 62 29 view .LVU101
+ 379 004a C360     		str	r3, [r0, #12]
+  63:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 380              		.loc 1 63 13 is_stmt 1 view .LVU102
+  63:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 381              		.loc 1 63 33 is_stmt 0 view .LVU103
+ 382 004c 0423     		movs	r3, #4
+ 383 004e 4374     		strb	r3, [r0, #17]
+  66:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             LPUART1->CR1 &= ~(USART_CR1_RXNEIE);
+ 384              		.loc 1 66 13 is_stmt 1 view .LVU104
+ 385              	.LVL15:
+ 386              	.LBB54:
+ 387              	.LBI54:
+ 779:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
+ 388              		.loc 2 779 22 view .LVU105
+ 389              	.LBB55:
+ 781:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
+ 390              		.loc 2 781 3 view .LVU106
+ 783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
+ 391              		.loc 2 783 5 view .LVU107
+ 783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 41
+
+
+ 392              		.loc 2 783 20 is_stmt 0 view .LVU108
+ 393 0050 1B4C     		ldr	r4, .L11+4
+ 394 0052 8026     		movs	r6, #128
+ 395 0054 8023     		movs	r3, #128
+ 396 0056 9B05     		lsls	r3, r3, #22
+ 397 0058 A351     		str	r3, [r4, r6]
+ 784:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __ISB();
+ 398              		.loc 2 784 5 is_stmt 1 view .LVU109
+ 399              	.LBB56:
+ 400              	.LBI56:
+ 944:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
+ 401              		.loc 3 944 27 view .LVU110
+ 402              	.LBB57:
+ 403              		.loc 3 946 3 view .LVU111
+ 404              		.syntax divided
+ 405              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 406 005a BFF34F8F 		dsb 0xF
+ 407              	@ 0 "" 2
+ 408              		.thumb
+ 409              		.syntax unified
+ 410              	.LBE57:
+ 411              	.LBE56:
+ 412              		.loc 2 785 5 view .LVU112
+ 413              	.LBB58:
+ 414              	.LBI58:
+ 933:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
+ 415              		.loc 3 933 27 view .LVU113
+ 416              	.LBB59:
+ 935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
+ 417              		.loc 3 935 3 view .LVU114
+ 418              		.syntax divided
+ 419              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 420 005e BFF36F8F 		isb 0xF
+ 421              	@ 0 "" 2
+ 422              	.LVL16:
+ 935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
+ 423              		.loc 3 935 3 is_stmt 0 view .LVU115
+ 424              		.thumb
+ 425              		.syntax unified
+ 426              	.LBE59:
+ 427              	.LBE58:
+ 428              	.LBE55:
+ 429              	.LBE54:
+  67:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 430              		.loc 1 67 13 is_stmt 1 view .LVU116
+  67:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 431              		.loc 1 67 26 is_stmt 0 view .LVU117
+ 432 0062 164A     		ldr	r2, .L11
+ 433 0064 1368     		ldr	r3, [r2]
+ 434 0066 2021     		movs	r1, #32
+ 435 0068 8B43     		bics	r3, r1
+ 436 006a 1360     		str	r3, [r2]
+  74:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
+ 437              		.loc 1 74 13 is_stmt 1 view .LVU118
+  74:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_CSELR->CSELR &= ~(0xA00); 
+ 438              		.loc 1 74 31 is_stmt 0 view .LVU119
+ 439 006c 154B     		ldr	r3, .L11+8
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 42
+
+
+ 440 006e 1D68     		ldr	r5, [r3]
+ 441 0070 A021     		movs	r1, #160
+ 442 0072 C900     		lsls	r1, r1, #3
+ 443 0074 2943     		orrs	r1, r5
+ 444 0076 1960     		str	r1, [r3]
+  75:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
+ 445              		.loc 1 75 13 is_stmt 1 view .LVU120
+  75:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set address for where to get data from as LPUART1->RDR
+ 446              		.loc 1 75 31 is_stmt 0 view .LVU121
+ 447 0078 1D68     		ldr	r5, [r3]
+ 448 007a 1349     		ldr	r1, .L11+12
+ 449 007c 0D40     		ands	r5, r1
+ 450 007e 1D60     		str	r5, [r3]
+  77:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
+ 451              		.loc 1 77 13 is_stmt 1 view .LVU122
+  77:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //Set memory address for where to store data
+ 452              		.loc 1 77 33 is_stmt 0 view .LVU123
+ 453 0080 124B     		ldr	r3, .L11+16
+ 454 0082 1349     		ldr	r1, .L11+20
+ 455 0084 9960     		str	r1, [r3, #8]
+  79:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
+ 456              		.loc 1 79 13 is_stmt 1 view .LVU124
+  79:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
+ 457              		.loc 1 79 45 is_stmt 0 view .LVU125
+ 458 0086 0830     		adds	r0, r0, #8
+ 459              	.LVL17:
+  79:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //length of data to store
+ 460              		.loc 1 79 33 view .LVU126
+ 461 0088 D860     		str	r0, [r3, #12]
+  81:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
+ 462              		.loc 1 81 13 is_stmt 1 view .LVU127
+  81:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable TCIE
+ 463              		.loc 1 81 34 is_stmt 0 view .LVU128
+ 464 008a 0221     		movs	r1, #2
+ 465 008c 5960     		str	r1, [r3, #4]
+  83:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set direction to 0 (peripheral to memory)
+ 466              		.loc 1 83 13 is_stmt 1 view .LVU129
+  83:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set direction to 0 (peripheral to memory)
+ 467              		.loc 1 83 32 is_stmt 0 view .LVU130
+ 468 008e 1868     		ldr	r0, [r3]
+ 469              	.LVL18:
+  83:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //set direction to 0 (peripheral to memory)
+ 470              		.loc 1 83 32 view .LVU131
+ 471 0090 0843     		orrs	r0, r1
+ 472 0092 1860     		str	r0, [r3]
+  85:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
+ 473              		.loc 1 85 13 is_stmt 1 view .LVU132
+  85:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable minc so that it increments address with each transfer
+ 474              		.loc 1 85 32 is_stmt 0 view .LVU133
+ 475 0094 1868     		ldr	r0, [r3]
+ 476 0096 0E31     		adds	r1, r1, #14
+ 477 0098 8843     		bics	r0, r1
+ 478 009a 1860     		str	r0, [r3]
+  87:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
+ 479              		.loc 1 87 13 is_stmt 1 view .LVU134
+  87:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             //enable DMA
+ 480              		.loc 1 87 32 is_stmt 0 view .LVU135
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 43
+
+
+ 481 009c 1968     		ldr	r1, [r3]
+ 482 009e 3143     		orrs	r1, r6
+ 483 00a0 1960     		str	r1, [r3]
+  89:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+ 484              		.loc 1 89 13 is_stmt 1 view .LVU136
+  89:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+ 485              		.loc 1 89 26 is_stmt 0 view .LVU137
+ 486 00a2 9168     		ldr	r1, [r2, #8]
+ 487 00a4 4020     		movs	r0, #64
+ 488 00a6 0143     		orrs	r1, r0
+ 489 00a8 9160     		str	r1, [r2, #8]
+  90:mcu-bsp/lib/src/viccom_stm32l0xx.c ****             DMA1_Channel3->CCR |= DMA_CCR_EN;
+ 490              		.loc 1 90 13 is_stmt 1 view .LVU138
+ 491              	.LVL19:
+ 492              	.LBB60:
+ 493              	.LBI60:
+ 741:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
+ 494              		.loc 2 741 22 view .LVU139
+ 495              	.LBB61:
+ 743:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
+ 496              		.loc 2 743 3 view .LVU140
+ 745:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ 497              		.loc 2 745 5 view .LVU141
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 498              		.loc 2 746 5 view .LVU142
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 499              		.loc 2 746 20 is_stmt 0 view .LVU143
+ 500 00aa 8022     		movs	r2, #128
+ 501 00ac D200     		lsls	r2, r2, #3
+ 502 00ae 2260     		str	r2, [r4]
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ 503              		.loc 2 747 5 is_stmt 1 view .LVU144
+ 504              	.LVL20:
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ 505              		.loc 2 747 5 is_stmt 0 view .LVU145
+ 506              	.LBE61:
+ 507              	.LBE60:
+  91:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 508              		.loc 1 91 13 is_stmt 1 view .LVU146
+  91:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 509              		.loc 1 91 32 is_stmt 0 view .LVU147
+ 510 00b0 1A68     		ldr	r2, [r3]
+ 511 00b2 0121     		movs	r1, #1
+ 512 00b4 0A43     		orrs	r2, r1
+ 513 00b6 1A60     		str	r2, [r3]
+ 514              	.LBE53:
   97:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
-  98:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return;
-  99:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
- 484              		.loc 1 99 1 view .LVU140
- 485              		@ sp needed
- 486 0046 10BD     		pop	{r4, pc}
- 487              	.L17:
- 488              		.align	2
- 489              	.L16:
- 490 0048 00480040 		.word	1073760256
- 491              		.cfi_endproc
- 492              	.LFE45:
- 494              		.section	.text.VICCOM_getBuffer,"ax",%progbits
- 495              		.align	1
- 496              		.global	VICCOM_getBuffer
- 497              		.syntax unified
- 498              		.code	16
- 499              		.thumb_func
- 500              		.fpu softvfp
- 502              	VICCOM_getBuffer:
- 503              	.LVL22:
- 504              	.LFB46:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 43
+ 515              		.loc 1 97 5 is_stmt 1 view .LVU148
+ 516 00b8 ADE7     		b	.L7
+ 517              	.L12:
+ 518 00ba C046     		.align	2
+ 519              	.L11:
+ 520 00bc 00480040 		.word	1073760256
+ 521 00c0 00E100E0 		.word	-536813312
+ 522 00c4 A8000240 		.word	1073873064
+ 523 00c8 FFF5FFFF 		.word	-2561
+ 524 00cc 30000240 		.word	1073872944
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 44
 
 
- 100:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 101:mcu-bsp/lib/src/viccom_stm32l0xx.c **** viccom_rx_t VICCOM_getBuffer(viccom_t* state) {
- 505              		.loc 1 101 47 is_stmt 1 view -0
- 506              		.cfi_startproc
- 507              		@ args = 0, pretend = 0, frame = 0
- 508              		@ frame_needed = 0, uses_anonymous_args = 0
- 509              		@ link register save eliminated.
- 102:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     viccom_rx_t rx = {.data = state->rxData, .length = state->rxLength};
- 510              		.loc 1 102 5 view .LVU142
- 511              		.loc 1 102 31 is_stmt 0 view .LVU143
- 512 0000 0B00     		movs	r3, r1
- 513 0002 0833     		adds	r3, r3, #8
- 514              		.loc 1 102 17 view .LVU144
- 515 0004 0360     		str	r3, [r0]
- 516 0006 CB68     		ldr	r3, [r1, #12]
- 517 0008 4360     		str	r3, [r0, #4]
- 103:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->dataAvailable = false;
- 518              		.loc 1 103 5 is_stmt 1 view .LVU145
- 519              		.loc 1 103 26 is_stmt 0 view .LVU146
- 520 000a 0023     		movs	r3, #0
- 521 000c 0B74     		strb	r3, [r1, #16]
- 104:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return rx;
- 522              		.loc 1 104 5 is_stmt 1 view .LVU147
- 105:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
- 523              		.loc 1 105 1 is_stmt 0 view .LVU148
- 524              		@ sp needed
- 525 000e 7047     		bx	lr
+ 525 00d0 24480040 		.word	1073760292
  526              		.cfi_endproc
- 527              	.LFE46:
- 529              		.section	.text.VICCOM_dataAvailable,"ax",%progbits
+ 527              	.LFE44:
+ 529              		.section	.text.VICCOM_send,"ax",%progbits
  530              		.align	1
- 531              		.global	VICCOM_dataAvailable
+ 531              		.global	VICCOM_send
  532              		.syntax unified
  533              		.code	16
  534              		.thumb_func
  535              		.fpu softvfp
- 537              	VICCOM_dataAvailable:
- 538              	.LVL23:
- 539              	.LFB47:
- 106:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
- 107:mcu-bsp/lib/src/viccom_stm32l0xx.c **** bool VICCOM_dataAvailable(viccom_t* state) {
- 540              		.loc 1 107 44 is_stmt 1 view -0
+ 537              	VICCOM_send:
+ 538              	.LVL21:
+ 539              	.LFB45:
+ 101:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 102:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 103:mcu-bsp/lib/src/viccom_stm32l0xx.c **** void VICCOM_send(viccom_t* state, uint8_t* data, int len) {
+ 540              		.loc 1 103 59 view -0
  541              		.cfi_startproc
  542              		@ args = 0, pretend = 0, frame = 0
  543              		@ frame_needed = 0, uses_anonymous_args = 0
- 544              		@ link register save eliminated.
- 108:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return state->dataAvailable;
- 545              		.loc 1 108 5 view .LVU150
- 546              		.loc 1 108 17 is_stmt 0 view .LVU151
- 547 0000 007C     		ldrb	r0, [r0, #16]
- 548              	.LVL24:
- 109:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }...
- 549              		.loc 1 109 1 view .LVU152
- 550              		@ sp needed
- 551 0002 7047     		bx	lr
- 552              		.cfi_endproc
- 553              	.LFE47:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 44
+ 544              		.loc 1 103 59 is_stmt 0 view .LVU150
+ 545 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 546              	.LCFI2:
+ 547              		.cfi_def_cfa_offset 20
+ 548              		.cfi_offset 4, -20
+ 549              		.cfi_offset 5, -16
+ 550              		.cfi_offset 6, -12
+ 551              		.cfi_offset 7, -8
+ 552              		.cfi_offset 14, -4
+ 104:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //enable lpuart1 irq if it isnt' already. 
+ 105:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_EnableIRQ(LPUART1_IRQn);
+ 553              		.loc 1 105 5 is_stmt 1 view .LVU151
+ 554              	.LVL22:
+ 555              	.LBB62:
+ 556              	.LBI62:
+ 741:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
+ 557              		.loc 2 741 22 view .LVU152
+ 558              	.LBB63:
+ 743:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
+ 559              		.loc 2 743 3 view .LVU153
+ 745:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ 560              		.loc 2 745 5 view .LVU154
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 561              		.loc 2 746 5 view .LVU155
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 562              		.loc 2 746 20 is_stmt 0 view .LVU156
+ 563 0002 314B     		ldr	r3, .L18
+ 564 0004 8022     		movs	r2, #128
+ 565              	.LVL23:
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 566              		.loc 2 746 20 view .LVU157
+ 567 0006 9205     		lsls	r2, r2, #22
+ 568 0008 1A60     		str	r2, [r3]
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ 569              		.loc 2 747 5 is_stmt 1 view .LVU158
+ 570              	.LVL24:
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 45
 
 
- 555              		.text
- 556              	.Letext0:
- 557              		.file 4 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 558              		.file 5 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 559              		.file 6 "mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h"
- 560              		.file 7 "mcu-bsp/lib/src/../inc/viccom.h"
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s 			page 45
+ 571              		.loc 2 747 5 is_stmt 0 view .LVU159
+ 572              	.LBE63:
+ 573              	.LBE62:
+ 106:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->ICR |= USART_ICR_TCCF;
+ 574              		.loc 1 106 5 is_stmt 1 view .LVU160
+ 575              		.loc 1 106 18 is_stmt 0 view .LVU161
+ 576 000a 304B     		ldr	r3, .L18+4
+ 577 000c 196A     		ldr	r1, [r3, #32]
+ 578              	.LVL25:
+ 579              		.loc 1 106 18 view .LVU162
+ 580 000e 4024     		movs	r4, #64
+ 581 0010 2143     		orrs	r1, r4
+ 582 0012 1962     		str	r1, [r3, #32]
+ 107:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR1 |= USART_CR1_TCIE;
+ 583              		.loc 1 107 5 is_stmt 1 view .LVU163
+ 584              		.loc 1 107 18 is_stmt 0 view .LVU164
+ 585 0014 1A68     		ldr	r2, [r3]
+ 586 0016 2243     		orrs	r2, r4
+ 587 0018 1A60     		str	r2, [r3]
+ 108:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 109:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //transmit address over lpuart
+ 110:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     uint16_t transmitAddress = state->address | 0x100;
+ 588              		.loc 1 110 5 is_stmt 1 view .LVU165
+ 589              		.loc 1 110 37 is_stmt 0 view .LVU166
+ 590 001a 4178     		ldrb	r1, [r0, #1]
+ 591              		.loc 1 110 14 view .LVU167
+ 592 001c 8022     		movs	r2, #128
+ 593 001e 5200     		lsls	r2, r2, #1
+ 594 0020 0A43     		orrs	r2, r1
+ 595              	.LVL26:
+ 111:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //set tx to busy. IS THIS THE RIGHT PLACE???????!!!!!!
+ 112:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->txBusy = 1;
+ 596              		.loc 1 112 5 is_stmt 1 view .LVU168
+ 597              		.loc 1 112 19 is_stmt 0 view .LVU169
+ 598 0022 0121     		movs	r1, #1
+ 599 0024 0170     		strb	r1, [r0]
+ 113:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->TDR = transmitAddress;
+ 600              		.loc 1 113 5 is_stmt 1 view .LVU170
+ 601              		.loc 1 113 18 is_stmt 0 view .LVU171
+ 602 0026 9A62     		str	r2, [r3, #40]
+ 114:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 115:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     while((LPUART1->ISR & USART_ISR_TC) || state->txBusy) {}; 
+ 603              		.loc 1 115 5 is_stmt 1 view .LVU172
+ 604              	.L14:
+ 605              		.loc 1 115 60 discriminator 3 view .LVU173
+ 606              		.loc 1 115 10 discriminator 3 view .LVU174
+ 607              		.loc 1 115 19 is_stmt 0 discriminator 3 view .LVU175
+ 608 0028 284B     		ldr	r3, .L18+4
+ 609 002a DB69     		ldr	r3, [r3, #28]
+ 610              		.loc 1 115 10 discriminator 3 view .LVU176
+ 611 002c 5B06     		lsls	r3, r3, #25
+ 612 002e FBD4     		bmi	.L14
+ 613              		.loc 1 115 49 discriminator 2 view .LVU177
+ 614 0030 0378     		ldrb	r3, [r0]
+ 615              		.loc 1 115 41 discriminator 2 view .LVU178
+ 616 0032 002B     		cmp	r3, #0
+ 617 0034 F8D1     		bne	.L14
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 46
+
+
+ 618              		.loc 1 115 61 is_stmt 1 discriminator 4 view .LVU179
+ 116:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 117:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //after that's done, transmit length over lpuart
+ 118:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     uint16_t transmitLength = 0x05;
+ 619              		.loc 1 118 5 discriminator 4 view .LVU180
+ 620              	.LVL27:
+ 119:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->txBusy = 1;
+ 621              		.loc 1 119 5 discriminator 4 view .LVU181
+ 622              		.loc 1 119 19 is_stmt 0 discriminator 4 view .LVU182
+ 623 0036 0133     		adds	r3, r3, #1
+ 624 0038 0370     		strb	r3, [r0]
+ 120:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->TDR = transmitLength;
+ 625              		.loc 1 120 5 is_stmt 1 discriminator 4 view .LVU183
+ 626              		.loc 1 120 18 is_stmt 0 discriminator 4 view .LVU184
+ 627 003a 244B     		ldr	r3, .L18+4
+ 628 003c 0522     		movs	r2, #5
+ 629              	.LVL28:
+ 630              		.loc 1 120 18 discriminator 4 view .LVU185
+ 631 003e 9A62     		str	r2, [r3, #40]
+ 121:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 122:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     while((LPUART1->ISR & USART_ISR_TC) || state->txBusy) {}; 
+ 632              		.loc 1 122 5 is_stmt 1 discriminator 4 view .LVU186
+ 633              	.L16:
+ 634              		.loc 1 122 60 discriminator 3 view .LVU187
+ 635              		.loc 1 122 10 discriminator 3 view .LVU188
+ 636              		.loc 1 122 19 is_stmt 0 discriminator 3 view .LVU189
+ 637 0040 224B     		ldr	r3, .L18+4
+ 638 0042 DB69     		ldr	r3, [r3, #28]
+ 639              		.loc 1 122 10 discriminator 3 view .LVU190
+ 640 0044 5B06     		lsls	r3, r3, #25
+ 641 0046 FBD4     		bmi	.L16
+ 642              		.loc 1 122 49 discriminator 2 view .LVU191
+ 643 0048 0378     		ldrb	r3, [r0]
+ 644              		.loc 1 122 41 discriminator 2 view .LVU192
+ 645 004a 002B     		cmp	r3, #0
+ 646 004c F8D1     		bne	.L16
+ 647              		.loc 1 122 61 is_stmt 1 discriminator 4 view .LVU193
+ 123:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 124:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //transmit payload over dma
+ 125:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     transmitData[0] = 0x06;
+ 648              		.loc 1 125 5 discriminator 4 view .LVU194
+ 649              		.loc 1 125 21 is_stmt 0 discriminator 4 view .LVU195
+ 650 004e 204A     		ldr	r2, .L18+8
+ 651 0050 0633     		adds	r3, r3, #6
+ 652 0052 1370     		strb	r3, [r2]
+ 126:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     transmitData[1] = 0x07;
+ 653              		.loc 1 126 5 is_stmt 1 discriminator 4 view .LVU196
+ 654              		.loc 1 126 21 is_stmt 0 discriminator 4 view .LVU197
+ 655 0054 0133     		adds	r3, r3, #1
+ 656 0056 5370     		strb	r3, [r2, #1]
+ 127:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     transmitData[2] = 0x09;
+ 657              		.loc 1 127 5 is_stmt 1 discriminator 4 view .LVU198
+ 658              		.loc 1 127 21 is_stmt 0 discriminator 4 view .LVU199
+ 659 0058 0233     		adds	r3, r3, #2
+ 660 005a 9370     		strb	r3, [r2, #2]
+ 128:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     transmitData[3] = 0x09;
+ 661              		.loc 1 128 5 is_stmt 1 discriminator 4 view .LVU200
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 47
+
+
+ 662              		.loc 1 128 21 is_stmt 0 discriminator 4 view .LVU201
+ 663 005c D370     		strb	r3, [r2, #3]
+ 129:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 130:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //disable lpuart interrupt
+ 131:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_DisableIRQ(LPUART1_IRQn);
+ 664              		.loc 1 131 5 is_stmt 1 discriminator 4 view .LVU202
+ 665              	.LVL29:
+ 666              	.LBB64:
+ 667              	.LBI64:
+ 779:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
+ 668              		.loc 2 779 22 discriminator 4 view .LVU203
+ 669              	.LBB65:
+ 781:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
+ 670              		.loc 2 781 3 discriminator 4 view .LVU204
+ 783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
+ 671              		.loc 2 783 5 discriminator 4 view .LVU205
+ 783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
+ 672              		.loc 2 783 20 is_stmt 0 discriminator 4 view .LVU206
+ 673 005e 1A4D     		ldr	r5, .L18
+ 674 0060 8024     		movs	r4, #128
+ 783:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __DSB();
+ 675              		.loc 2 783 20 discriminator 4 view .LVU207
+ 676 0062 8023     		movs	r3, #128
+ 677 0064 9B05     		lsls	r3, r3, #22
+ 678 0066 2B51     		str	r3, [r5, r4]
+ 784:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __ISB();
+ 679              		.loc 2 784 5 is_stmt 1 discriminator 4 view .LVU208
+ 680              	.LBB66:
+ 681              	.LBI66:
+ 944:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
+ 682              		.loc 3 944 27 discriminator 4 view .LVU209
+ 683              	.LBB67:
+ 684              		.loc 3 946 3 discriminator 4 view .LVU210
+ 685              		.syntax divided
+ 686              	@ 946 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 687 0068 BFF34F8F 		dsb 0xF
+ 688              	@ 0 "" 2
+ 689              		.thumb
+ 690              		.syntax unified
+ 691              	.LBE67:
+ 692              	.LBE66:
+ 693              		.loc 2 785 5 discriminator 4 view .LVU211
+ 694              	.LBB68:
+ 695              	.LBI68:
+ 933:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** {
+ 696              		.loc 3 933 27 discriminator 4 view .LVU212
+ 697              	.LBB69:
+ 935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
+ 698              		.loc 3 935 3 discriminator 4 view .LVU213
+ 699              		.syntax divided
+ 700              	@ 935 "mcu-bsp/CMSIS/Include/cmsis_gcc.h" 1
+ 701 006c BFF36F8F 		isb 0xF
+ 702              	@ 0 "" 2
+ 703              	.LVL30:
+ 935:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** }
+ 704              		.loc 3 935 3 is_stmt 0 discriminator 4 view .LVU214
+ 705              		.thumb
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 48
+
+
+ 706              		.syntax unified
+ 707              	.LBE69:
+ 708              	.LBE68:
+ 709              	.LBE65:
+ 710              	.LBE64:
+ 132:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR1 &= ~(USART_CR1_TCIE);
+ 711              		.loc 1 132 5 is_stmt 1 discriminator 4 view .LVU215
+ 712              		.loc 1 132 18 is_stmt 0 discriminator 4 view .LVU216
+ 713 0070 1649     		ldr	r1, .L18+4
+ 714 0072 0B68     		ldr	r3, [r1]
+ 715 0074 4026     		movs	r6, #64
+ 716 0076 B343     		bics	r3, r6
+ 717 0078 0B60     		str	r3, [r1]
+ 133:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 134:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //enable DMA stuff
+ 135:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //map dma channel to LPUART rx, or 0x500
+ 136:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_CSELR->CSELR |=  0x50;
+ 718              		.loc 1 136 5 is_stmt 1 discriminator 4 view .LVU217
+ 719              		.loc 1 136 23 is_stmt 0 discriminator 4 view .LVU218
+ 720 007a 164B     		ldr	r3, .L18+12
+ 721 007c 1E68     		ldr	r6, [r3]
+ 722 007e 5027     		movs	r7, #80
+ 723 0080 3E43     		orrs	r6, r7
+ 724 0082 1E60     		str	r6, [r3]
+ 137:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_CSELR->CSELR &= ~(0xA0); 
+ 725              		.loc 1 137 5 is_stmt 1 discriminator 4 view .LVU219
+ 726              		.loc 1 137 23 is_stmt 0 discriminator 4 view .LVU220
+ 727 0084 1E68     		ldr	r6, [r3]
+ 728 0086 5037     		adds	r7, r7, #80
+ 729 0088 BE43     		bics	r6, r7
+ 730 008a 1E60     		str	r6, [r3]
+ 138:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //set address for where to get data from as LPUART1->TDR
+ 139:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CPAR = (uint32_t)&LPUART1->TDR;
+ 731              		.loc 1 139 5 is_stmt 1 discriminator 4 view .LVU221
+ 732              		.loc 1 139 25 is_stmt 0 discriminator 4 view .LVU222
+ 733 008c 124B     		ldr	r3, .L18+16
+ 734 008e 134E     		ldr	r6, .L18+20
+ 735 0090 9E60     		str	r6, [r3, #8]
+ 140:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //Set memory address for where to store data
+ 141:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CMAR = (uint32_t)&transmitData;
+ 736              		.loc 1 141 5 is_stmt 1 discriminator 4 view .LVU223
+ 737              		.loc 1 141 25 is_stmt 0 discriminator 4 view .LVU224
+ 738 0092 DA60     		str	r2, [r3, #12]
+ 142:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //length of data to store
+ 143:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CNDTR = 4;
+ 739              		.loc 1 143 5 is_stmt 1 discriminator 4 view .LVU225
+ 740              		.loc 1 143 26 is_stmt 0 discriminator 4 view .LVU226
+ 741 0094 0422     		movs	r2, #4
+ 742 0096 5A60     		str	r2, [r3, #4]
+ 144:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //enable TCIE
+ 145:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CCR |= DMA_CCR_TCIE;
+ 743              		.loc 1 145 5 is_stmt 1 discriminator 4 view .LVU227
+ 744              		.loc 1 145 24 is_stmt 0 discriminator 4 view .LVU228
+ 745 0098 1A68     		ldr	r2, [r3]
+ 746 009a 0226     		movs	r6, #2
+ 747 009c 3243     		orrs	r2, r6
+ 748 009e 1A60     		str	r2, [r3]
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 49
+
+
+ 146:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //set direction to 1 (memory to peripheral)
+ 147:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CCR |= DMA_CCR_DIR;
+ 749              		.loc 1 147 5 is_stmt 1 discriminator 4 view .LVU229
+ 750              		.loc 1 147 24 is_stmt 0 discriminator 4 view .LVU230
+ 751 00a0 1A68     		ldr	r2, [r3]
+ 752 00a2 0E36     		adds	r6, r6, #14
+ 753 00a4 3243     		orrs	r2, r6
+ 754 00a6 1A60     		str	r2, [r3]
+ 148:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //enable minc so that it increments address with each transfer
+ 149:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CCR |= DMA_MINC_ENABLE;
+ 755              		.loc 1 149 5 is_stmt 1 discriminator 4 view .LVU231
+ 756              		.loc 1 149 24 is_stmt 0 discriminator 4 view .LVU232
+ 757 00a8 1A68     		ldr	r2, [r3]
+ 758 00aa 2243     		orrs	r2, r4
+ 759 00ac 1A60     		str	r2, [r3]
+ 150:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     //enable DMA
+ 151:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     LPUART1->CR3 |= USART_CR3_DMAT;
+ 760              		.loc 1 151 5 is_stmt 1 discriminator 4 view .LVU233
+ 761              		.loc 1 151 18 is_stmt 0 discriminator 4 view .LVU234
+ 762 00ae 8A68     		ldr	r2, [r1, #8]
+ 763 00b0 2243     		orrs	r2, r4
+ 764 00b2 8A60     		str	r2, [r1, #8]
+ 152:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     NVIC_EnableIRQ(DMA1_Channel2_3_IRQn);
+ 765              		.loc 1 152 5 is_stmt 1 discriminator 4 view .LVU235
+ 766              	.LVL31:
+ 767              	.LBB70:
+ 768              	.LBI70:
+ 741:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
+ 769              		.loc 2 741 22 discriminator 4 view .LVU236
+ 770              	.LBB71:
+ 743:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
+ 771              		.loc 2 743 3 discriminator 4 view .LVU237
+ 745:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
+ 772              		.loc 2 745 5 discriminator 4 view .LVU238
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 773              		.loc 2 746 5 discriminator 4 view .LVU239
+ 746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
+ 774              		.loc 2 746 20 is_stmt 0 discriminator 4 view .LVU240
+ 775 00b4 8022     		movs	r2, #128
+ 776 00b6 D200     		lsls	r2, r2, #3
+ 777 00b8 2A60     		str	r2, [r5]
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ 778              		.loc 2 747 5 is_stmt 1 discriminator 4 view .LVU241
+ 779              	.LVL32:
+ 747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   }
+ 780              		.loc 2 747 5 is_stmt 0 discriminator 4 view .LVU242
+ 781              	.LBE71:
+ 782              	.LBE70:
+ 153:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->txBusy = 1;
+ 783              		.loc 1 153 5 is_stmt 1 discriminator 4 view .LVU243
+ 784              		.loc 1 153 19 is_stmt 0 discriminator 4 view .LVU244
+ 785 00ba 0121     		movs	r1, #1
+ 786 00bc 0170     		strb	r1, [r0]
+ 154:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     DMA1_Channel2->CCR |= DMA_CCR_EN;
+ 787              		.loc 1 154 5 is_stmt 1 discriminator 4 view .LVU245
+ 788              		.loc 1 154 24 is_stmt 0 discriminator 4 view .LVU246
+ 789 00be 1A68     		ldr	r2, [r3]
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 50
+
+
+ 790 00c0 0A43     		orrs	r2, r1
+ 791 00c2 1A60     		str	r2, [r3]
+ 155:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 156:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 157:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return;
+ 792              		.loc 1 157 5 is_stmt 1 discriminator 4 view .LVU247
+ 158:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
+ 793              		.loc 1 158 1 is_stmt 0 discriminator 4 view .LVU248
+ 794              		@ sp needed
+ 795              		.loc 1 158 1 discriminator 4 view .LVU249
+ 796 00c4 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 797              	.L19:
+ 798 00c6 C046     		.align	2
+ 799              	.L18:
+ 800 00c8 00E100E0 		.word	-536813312
+ 801 00cc 00480040 		.word	1073760256
+ 802 00d0 00000000 		.word	.LANCHOR0
+ 803 00d4 A8000240 		.word	1073873064
+ 804 00d8 1C000240 		.word	1073872924
+ 805 00dc 28480040 		.word	1073760296
+ 806              		.cfi_endproc
+ 807              	.LFE45:
+ 809              		.section	.text.VICCOM_getBuffer,"ax",%progbits
+ 810              		.align	1
+ 811              		.global	VICCOM_getBuffer
+ 812              		.syntax unified
+ 813              		.code	16
+ 814              		.thumb_func
+ 815              		.fpu softvfp
+ 817              	VICCOM_getBuffer:
+ 818              	.LVL33:
+ 819              	.LFB46:
+ 159:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 160:mcu-bsp/lib/src/viccom_stm32l0xx.c **** viccom_rx_t VICCOM_getBuffer(viccom_t* state) {
+ 820              		.loc 1 160 47 is_stmt 1 view -0
+ 821              		.cfi_startproc
+ 822              		@ args = 0, pretend = 0, frame = 0
+ 823              		@ frame_needed = 0, uses_anonymous_args = 0
+ 824              		@ link register save eliminated.
+ 161:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     viccom_rx_t rx = {.data = state->rxData, .length = state->rxLength};
+ 825              		.loc 1 161 5 view .LVU251
+ 826              		.loc 1 161 31 is_stmt 0 view .LVU252
+ 827 0000 0B00     		movs	r3, r1
+ 828 0002 0833     		adds	r3, r3, #8
+ 829              		.loc 1 161 17 view .LVU253
+ 830 0004 0360     		str	r3, [r0]
+ 831 0006 CB68     		ldr	r3, [r1, #12]
+ 832 0008 4360     		str	r3, [r0, #4]
+ 162:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     state->dataAvailable = false;
+ 833              		.loc 1 162 5 is_stmt 1 view .LVU254
+ 834              		.loc 1 162 26 is_stmt 0 view .LVU255
+ 835 000a 0023     		movs	r3, #0
+ 836 000c 0B74     		strb	r3, [r1, #16]
+ 163:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return rx;
+ 837              		.loc 1 163 5 is_stmt 1 view .LVU256
+ 164:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }
+ 838              		.loc 1 164 1 is_stmt 0 view .LVU257
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 51
+
+
+ 839              		@ sp needed
+ 840 000e 7047     		bx	lr
+ 841              		.cfi_endproc
+ 842              	.LFE46:
+ 844              		.section	.text.VICCOM_dataAvailable,"ax",%progbits
+ 845              		.align	1
+ 846              		.global	VICCOM_dataAvailable
+ 847              		.syntax unified
+ 848              		.code	16
+ 849              		.thumb_func
+ 850              		.fpu softvfp
+ 852              	VICCOM_dataAvailable:
+ 853              	.LVL34:
+ 854              	.LFB47:
+ 165:mcu-bsp/lib/src/viccom_stm32l0xx.c **** 
+ 166:mcu-bsp/lib/src/viccom_stm32l0xx.c **** bool VICCOM_dataAvailable(viccom_t* state) {
+ 855              		.loc 1 166 44 is_stmt 1 view -0
+ 856              		.cfi_startproc
+ 857              		@ args = 0, pretend = 0, frame = 0
+ 858              		@ frame_needed = 0, uses_anonymous_args = 0
+ 859              		@ link register save eliminated.
+ 167:mcu-bsp/lib/src/viccom_stm32l0xx.c ****     return state->dataAvailable;
+ 860              		.loc 1 167 5 view .LVU259
+ 861              		.loc 1 167 17 is_stmt 0 view .LVU260
+ 862 0000 007C     		ldrb	r0, [r0, #16]
+ 863              	.LVL35:
+ 168:mcu-bsp/lib/src/viccom_stm32l0xx.c **** }...
+ 864              		.loc 1 168 1 view .LVU261
+ 865              		@ sp needed
+ 866 0002 7047     		bx	lr
+ 867              		.cfi_endproc
+ 868              	.LFE47:
+ 870              		.global	transmitData
+ 871              		.section	.bss.transmitData,"aw",%nobits
+ 872              		.align	2
+ 873              		.set	.LANCHOR0,. + 0
+ 876              	transmitData:
+ 877 0000 00000000 		.space	4
+ 878              		.text
+ 879              	.Letext0:
+ 880              		.file 4 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 881              		.file 5 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 882              		.file 6 "mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h"
+ 883              		.file 7 "mcu-bsp/lib/src/../inc/viccom.h"
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s 			page 52
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 viccom_stm32l0xx.c
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:16     .text.VICCOM_stm_init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:24     .text.VICCOM_stm_init:00000000 VICCOM_stm_init
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:50     .text.DMA1_Channel2_3_IRQHandler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:57     .text.DMA1_Channel2_3_IRQHandler:00000000 DMA1_Channel2_3_IRQHandler
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:133    .text.DMA1_Channel2_3_IRQHandler:0000002c $d
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:140    .text.VICCOM_uartHandler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:147    .text.VICCOM_uartHandler:00000000 VICCOM_uartHandler
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:379    .text.VICCOM_uartHandler:000000bc $d
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:389    .text.VICCOM_send:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:396    .text.VICCOM_send:00000000 VICCOM_send
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:490    .text.VICCOM_send:00000048 $d
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:495    .text.VICCOM_getBuffer:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:502    .text.VICCOM_getBuffer:00000000 VICCOM_getBuffer
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:530    .text.VICCOM_dataAvailable:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccYW74SF.s:537    .text.VICCOM_dataAvailable:00000000 VICCOM_dataAvailable
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:16     .text.VICCOM_stm_init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:24     .text.VICCOM_stm_init:00000000 VICCOM_stm_init
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:50     .text.VICCOM_pdmaHandler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:57     .text.VICCOM_pdmaHandler:00000000 VICCOM_pdmaHandler
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:272    .text.VICCOM_pdmaHandler:00000098 $d
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:281    .text.VICCOM_uartHandler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:288    .text.VICCOM_uartHandler:00000000 VICCOM_uartHandler
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:520    .text.VICCOM_uartHandler:000000bc $d
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:530    .text.VICCOM_send:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:537    .text.VICCOM_send:00000000 VICCOM_send
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:800    .text.VICCOM_send:000000c8 $d
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:810    .text.VICCOM_getBuffer:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:817    .text.VICCOM_getBuffer:00000000 VICCOM_getBuffer
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:845    .text.VICCOM_dataAvailable:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:852    .text.VICCOM_dataAvailable:00000000 VICCOM_dataAvailable
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:876    .bss.transmitData:00000000 transmitData
+C:\Users\vic_user\AppData\Local\Temp\cc6wNCPx.s:872    .bss.transmitData:00000000 $d
 
 NO UNDEFINED SYMBOLS
