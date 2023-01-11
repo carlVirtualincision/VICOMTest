@@ -96,12 +96,13 @@ while True:
     # payloadCRC = calculator.checksum(bytes(state.SerializeToString()))
     # payloadCRC = crcCompute(bytes(state.SerializeToString()))
 
-    x = 0x02
+    x = 0x04
     write([x], 1)
     write([x], 0)
     x = 0xFF
     write([x], 0)
-    write([x], 0)
+    x = 0x02
+    write([x], 1)
     # write([len(state.SerializeToString())], 0)
     # write([headerCRC & 0xff], 0)
     # write([(headerCRC >> 8) & 0xFF], 0)

@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   31:src/main.c    **** /* USER CODE BEGIN PTD */
   32:src/main.c    **** 
   33:src/main.c    **** /* USER CODE END PTD */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 2
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 2
 
 
   34:src/main.c    **** 
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   88:src/main.c    **** 
   89:src/main.c    ****   /* USER CODE BEGIN Init */
   90:src/main.c    **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 3
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 3
 
 
   91:src/main.c    ****   /* USER CODE END Init */
@@ -137,11 +137,11 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  104:src/main.c    ****   MX_LPUART1_UART_Init();
  105:src/main.c    ****   MX_SPI1_Init();
  106:src/main.c    ****   /* USER CODE BEGIN 2 */
- 107:src/main.c    ****   VICCOM_stm_init(&state, 2);
+ 107:src/main.c    ****   VICCOM_stm_init(&state, 4);
  108:src/main.c    ****   NVIC_EnableIRQ(LPUART1_IRQn);
  109:src/main.c    ****   LPUART1->CR1 |= USART_CR1_RXNEIE;
  110:src/main.c    ****   uint8_t fakeBuffer[1];
- 111:src/main.c    ****   VICCOM_send(&state, fakeBuffer, 2);
+ 111:src/main.c    ****   // VICCOM_send(&state, fakeBuffer, 2);
  112:src/main.c    **** 
  113:src/main.c    ****   /* USER CODE END 2 */
  114:src/main.c    **** 
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  145:src/main.c    ****   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
  146:src/main.c    ****   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
  147:src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 4
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 4
 
 
  148:src/main.c    ****   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  202:src/main.c    ****   /* USER CODE BEGIN CRC_Init 2 */
  203:src/main.c    **** 
  204:src/main.c    ****   /* USER CODE END CRC_Init 2 */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 5
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 5
 
 
  205:src/main.c    **** 
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  259:src/main.c    ****   hspi1.Init.Mode = SPI_MODE_MASTER;
  260:src/main.c    ****   hspi1.Init.Direction = SPI_DIRECTION_2LINES;
  261:src/main.c    ****   hspi1.Init.DataSize = SPI_DATASIZE_8BIT;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 6
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 6
 
 
  262:src/main.c    ****   hspi1.Init.CLKPolarity = SPI_POLARITY_LOW;
@@ -358,7 +358,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   32              		.cfi_def_cfa_offset 20
   33              		.cfi_offset 4, -20
   34              		.cfi_offset 5, -16
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 7
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 7
 
 
   35              		.cfi_offset 6, -12
@@ -418,7 +418,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   84              	.LBE7:
   85              		.loc 1 314 3 view .LVU14
  315:src/main.c    ****   __HAL_RCC_GPIOB_CLK_ENABLE();
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 8
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 8
 
 
   86              		.loc 1 315 3 view .LVU15
@@ -478,7 +478,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  129              		.loc 1 326 24 is_stmt 0 view .LVU28
  130 006c 0024     		movs	r4, #0
  131 006e 0594     		str	r4, [sp, #20]
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 9
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 9
 
 
  327:src/main.c    ****   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -538,7 +538,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  176              		.fpu softvfp
  178              	MX_DMA_Init:
  179              	.LFB47:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 10
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 10
 
 
  284:src/main.c    **** 
@@ -598,7 +598,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  224              	.L5:
  225 002c 00100240 		.word	1073876992
  226              		.cfi_endproc
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 11
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 11
 
 
  227              	.LFE47:
@@ -658,7 +658,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   21:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
   22:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
   23:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 12
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 12
 
 
   24:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** 
@@ -718,7 +718,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   78:mcu-bsp/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
   79:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
   80:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 13
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 13
 
 
   81:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
@@ -778,7 +778,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  135:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   typedef struct {
  136:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t const* src;
  137:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t* dest;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 14
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 14
 
 
  138:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****     uint32_t  wlen;
@@ -838,7 +838,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  192:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
  193:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
  194:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 15
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 15
 
 
  195:mcu-bsp/CMSIS/Include/cmsis_gcc.h ****  */
@@ -898,7 +898,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  284              		.cfi_offset 4, -8
  285              		.cfi_offset 14, -4
  192:src/main.c    ****   hcrc.Init.DefaultPolynomialUse = DEFAULT_POLYNOMIAL_ENABLE;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 16
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 16
 
 
  286              		.loc 1 192 3 view .LVU60
@@ -958,7 +958,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  324              	.L12:
  325 0024 00000000 		.word	.LANCHOR0
  326 0028 00300240 		.word	1073885184
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 17
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 17
 
 
  327              		.cfi_endproc
@@ -1018,7 +1018,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  370              		.loc 1 227 22 is_stmt 0 view .LVU89
  371 0018 0C22     		movs	r2, #12
  372 001a 4261     		str	r2, [r0, #20]
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 18
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 18
 
 
  228:src/main.c    ****   hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
@@ -1078,7 +1078,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  417              		@ frame_needed = 0, uses_anonymous_args = 0
  418 0000 10B5     		push	{r4, lr}
  419              	.LCFI7:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 19
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 19
 
 
  420              		.cfi_def_cfa_offset 8
@@ -1138,7 +1138,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  456 0020 0362     		str	r3, [r0, #32]
  267:src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
  457              		.loc 1 267 3 is_stmt 1 view .LVU120
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 20
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 20
 
 
  267:src/main.c    ****   hspi1.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -1198,7 +1198,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  503 0000 00B5     		push	{lr}
  504              	.LCFI8:
  505              		.cfi_def_cfa_offset 4
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 21
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 21
 
 
  506              		.cfi_offset 14, -4
@@ -1258,7 +1258,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  548              		.loc 1 146 3 is_stmt 1 view .LVU143
  146:src/main.c    ****   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
  549              		.loc 1 146 41 is_stmt 0 view .LVU144
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 22
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 22
 
 
  550 003a 0F32     		adds	r2, r2, #15
@@ -1318,7 +1318,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  587 0062 0023     		movs	r3, #0
  588 0064 0893     		str	r3, [sp, #32]
  162:src/main.c    ****   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 23
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 23
 
 
  589              		.loc 1 162 3 is_stmt 1 view .LVU162
@@ -1378,7 +1378,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  628              	.L29:
  167:src/main.c    ****   }
  629              		.loc 1 167 5 view .LVU178
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 24
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 24
 
 
  630 0090 FFF7FEFF 		bl	Error_Handler
@@ -1408,59 +1408,55 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  654              		.loc 1 79 1 view -0
  655              		.cfi_startproc
  656              		@ Volatile: function does not return.
- 657              		@ args = 0, pretend = 0, frame = 8
+ 657              		@ args = 0, pretend = 0, frame = 0
  658              		@ frame_needed = 0, uses_anonymous_args = 0
  659 0000 10B5     		push	{r4, lr}
  660              	.LCFI10:
  661              		.cfi_def_cfa_offset 8
  662              		.cfi_offset 4, -8
  663              		.cfi_offset 14, -4
- 664 0002 82B0     		sub	sp, sp, #8
- 665              	.LCFI11:
- 666              		.cfi_def_cfa_offset 16
   87:src/main.c    **** 
- 667              		.loc 1 87 3 view .LVU181
- 668 0004 FFF7FEFF 		bl	HAL_Init
- 669              	.LVL22:
+ 664              		.loc 1 87 3 view .LVU181
+ 665 0002 FFF7FEFF 		bl	HAL_Init
+ 666              	.LVL22:
   94:src/main.c    **** 
- 670              		.loc 1 94 3 view .LVU182
- 671 0008 FFF7FEFF 		bl	SystemClock_Config
- 672              	.LVL23:
+ 667              		.loc 1 94 3 view .LVU182
+ 668 0006 FFF7FEFF 		bl	SystemClock_Config
+ 669              	.LVL23:
  101:src/main.c    ****   MX_DMA_Init();
- 673              		.loc 1 101 3 view .LVU183
- 674 000c FFF7FEFF 		bl	MX_GPIO_Init
- 675              	.LVL24:
+ 670              		.loc 1 101 3 view .LVU183
+ 671 000a FFF7FEFF 		bl	MX_GPIO_Init
+ 672              	.LVL24:
  102:src/main.c    ****   MX_CRC_Init();
- 676              		.loc 1 102 3 view .LVU184
- 677 0010 FFF7FEFF 		bl	MX_DMA_Init
- 678              	.LVL25:
+ 673              		.loc 1 102 3 view .LVU184
+ 674 000e FFF7FEFF 		bl	MX_DMA_Init
+ 675              	.LVL25:
  103:src/main.c    ****   MX_LPUART1_UART_Init();
- 679              		.loc 1 103 3 view .LVU185
- 680 0014 FFF7FEFF 		bl	MX_CRC_Init
- 681              	.LVL26:
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 25
-
-
+ 676              		.loc 1 103 3 view .LVU185
+ 677 0012 FFF7FEFF 		bl	MX_CRC_Init
+ 678              	.LVL26:
  104:src/main.c    ****   MX_SPI1_Init();
- 682              		.loc 1 104 3 view .LVU186
- 683 0018 FFF7FEFF 		bl	MX_LPUART1_UART_Init
- 684              	.LVL27:
+ 679              		.loc 1 104 3 view .LVU186
+ 680 0016 FFF7FEFF 		bl	MX_LPUART1_UART_Init
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 25
+
+
+ 681              	.LVL27:
  105:src/main.c    ****   /* USER CODE BEGIN 2 */
- 685              		.loc 1 105 3 view .LVU187
- 686 001c FFF7FEFF 		bl	MX_SPI1_Init
- 687              	.LVL28:
+ 682              		.loc 1 105 3 view .LVU187
+ 683 001a FFF7FEFF 		bl	MX_SPI1_Init
+ 684              	.LVL28:
  107:src/main.c    ****   NVIC_EnableIRQ(LPUART1_IRQn);
- 688              		.loc 1 107 3 view .LVU188
- 689 0020 094C     		ldr	r4, .L35
- 690 0022 0221     		movs	r1, #2
- 691 0024 2000     		movs	r0, r4
- 692 0026 FFF7FEFF 		bl	VICCOM_stm_init
- 693              	.LVL29:
+ 685              		.loc 1 107 3 view .LVU188
+ 686 001e 0421     		movs	r1, #4
+ 687 0020 0648     		ldr	r0, .L35
+ 688 0022 FFF7FEFF 		bl	VICCOM_stm_init
+ 689              	.LVL29:
  108:src/main.c    ****   LPUART1->CR1 |= USART_CR1_RXNEIE;
- 694              		.loc 1 108 3 view .LVU189
- 695              	.LBB12:
- 696              	.LBI12:
- 697              		.file 3 "mcu-bsp/CMSIS/Include/core_cm0plus.h"
+ 690              		.loc 1 108 3 view .LVU189
+ 691              	.LBB12:
+ 692              	.LBI12:
+ 693              		.file 3 "mcu-bsp/CMSIS/Include/core_cm0plus.h"
    1:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**************************************************************************//**
    2:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * @file     core_cm0plus.h
    3:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  * @brief    CMSIS Cortex-M0+ Core Peripheral Access Layer Header File
@@ -1498,13 +1494,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   35:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   36:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #ifdef __cplusplus
   37:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  extern "C" {
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 26
-
-
   38:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #endif
   39:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   40:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
   41:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 26
+
+
   42:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   CMSIS violates the following MISRA-C:2004 rules:
   43:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   44:mcu-bsp/CMSIS/Include/core_cm0plus.h ****    \li Required Rule 8.5, object/function definition in header file.<br>
@@ -1558,13 +1554,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
   92:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   93:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #elif defined ( __ICCARM__ )
   94:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #if defined __ARMVFP__
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 27
-
-
   95:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
   96:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
   97:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
   98:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #elif defined ( __TI_ARM__ )
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 27
+
+
   99:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #if defined __TI_VFP_SUPPORT__
  100:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #error "Compiler generates FPU instructions for a device without an FPU (check __FPU_PRESENT)"
  101:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
@@ -1618,13 +1614,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  149:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  150:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #ifndef __NVIC_PRIO_BITS
  151:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #define __NVIC_PRIO_BITS          2U
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 28
-
-
  152:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #warning "__NVIC_PRIO_BITS not defined in device header file; using default!"
  153:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
  154:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  155:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #ifndef __Vendor_SysTickConfig
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 28
+
+
  156:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #define __Vendor_SysTickConfig    0U
  157:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     #warning "__Vendor_SysTickConfig not defined in device header file; using default!"
  158:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   #endif
@@ -1678,13 +1674,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  206:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  207:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
  208:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \brief  Union type to access the Application Program Status Register (APSR).
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 29
-
-
  209:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  210:mcu-bsp/CMSIS/Include/core_cm0plus.h **** typedef union
  211:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
  212:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   struct
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 29
+
+
  213:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
  214:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t _reserved0:28;              /*!< bit:  0..27  Reserved */
  215:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
@@ -1738,13 +1734,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  263:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t _reserved0:15;              /*!< bit:  9..23  Reserved */
  264:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t T:1;                        /*!< bit:     24  Thumb bit        (read 0) */
  265:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t _reserved1:3;               /*!< bit: 25..27  Reserved */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 30
-
-
  266:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t V:1;                        /*!< bit:     28  Overflow condition code flag */
  267:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t C:1;                        /*!< bit:     29  Carry condition code flag */
  268:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t Z:1;                        /*!< bit:     30  Zero condition code flag */
  269:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     uint32_t N:1;                        /*!< bit:     31  Negative condition code flag */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 30
+
+
  270:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   } b;                                   /*!< Structure used for bit  access */
  271:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   uint32_t w;                            /*!< Type      used for word access */
  272:mcu-bsp/CMSIS/Include/core_cm0plus.h **** } xPSR_Type;
@@ -1798,13 +1794,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  320:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \defgroup   CMSIS_NVIC  Nested Vectored Interrupt Controller (NVIC)
  321:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \brief      Type definitions for the NVIC Registers
  322:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   @{
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 31
-
-
  323:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  324:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  325:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
  326:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \brief  Structure type to access the Nested Vectored Interrupt Controller (NVIC).
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 31
+
+
  327:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  328:mcu-bsp/CMSIS/Include/core_cm0plus.h **** typedef struct
  329:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
@@ -1858,13 +1854,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  377:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_VARIANT_Msk              (0xFUL << SCB_CPUID_VARIANT_Pos)               /*!< SCB 
  378:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  379:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_ARCHITECTURE_Pos         16U                                            /*!< SCB 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 32
-
-
  380:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_ARCHITECTURE_Msk         (0xFUL << SCB_CPUID_ARCHITECTURE_Pos)          /*!< SCB 
  381:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  382:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_PARTNO_Pos                4U                                            /*!< SCB 
  383:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_PARTNO_Msk               (0xFFFUL << SCB_CPUID_PARTNO_Pos)              /*!< SCB 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 32
+
+
  384:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  385:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_REVISION_Pos              0U                                            /*!< SCB 
  386:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_CPUID_REVISION_Msk             (0xFUL /*<< SCB_CPUID_REVISION_Pos*/)          /*!< SCB 
@@ -1918,13 +1914,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  434:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  435:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_AIRCR_VECTCLRACTIVE_Pos         1U                                            /*!< SCB 
  436:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_AIRCR_VECTCLRACTIVE_Msk        (1UL << SCB_AIRCR_VECTCLRACTIVE_Pos)           /*!< SCB 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 33
-
-
  437:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  438:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SCB System Control Register Definitions */
  439:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SEVONPEND_Pos               4U                                            /*!< SCB 
  440:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SEVONPEND_Msk              (1UL << SCB_SCR_SEVONPEND_Pos)                 /*!< SCB 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 33
+
+
  441:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  442:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Pos               2U                                            /*!< SCB 
  443:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SCB_SCR_SLEEPDEEP_Msk              (1UL << SCB_SCR_SLEEPDEEP_Pos)                 /*!< SCB 
@@ -1978,13 +1974,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  491:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_CTRL_ENABLE_Msk            (1UL /*<< SysTick_CTRL_ENABLE_Pos*/)           /*!< SysT
  492:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  493:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SysTick Reload Register Definitions */
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 34
-
-
  494:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_LOAD_RELOAD_Pos             0U                                            /*!< SysT
  495:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_LOAD_RELOAD_Msk            (0xFFFFFFUL /*<< SysTick_LOAD_RELOAD_Pos*/)    /*!< SysT
  496:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  497:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* SysTick Current Register Definitions */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 34
+
+
  498:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_VAL_CURRENT_Pos             0U                                            /*!< SysT
  499:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define SysTick_VAL_CURRENT_Msk            (0xFFFFFFUL /*<< SysTick_VAL_CURRENT_Pos*/)    /*!< SysT
  500:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
@@ -2038,13 +2034,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  548:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  549:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_CTRL_HFNMIENA_Pos               1U                                            /*!< MPU 
  550:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_CTRL_HFNMIENA_Msk              (1UL << MPU_CTRL_HFNMIENA_Pos)                 /*!< MPU 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 35
-
-
  551:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  552:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_CTRL_ENABLE_Pos                 0U                                            /*!< MPU 
  553:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_CTRL_ENABLE_Msk                (1UL /*<< MPU_CTRL_ENABLE_Pos*/)               /*!< MPU 
  554:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 35
+
+
  555:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* MPU Region Number Register Definitions */
  556:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RNR_REGION_Pos                  0U                                            /*!< MPU 
  557:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define MPU_RNR_REGION_Msk                 (0xFFUL /*<< MPU_RNR_REGION_Pos*/)             /*!< MPU 
@@ -2098,13 +2094,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  605:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \ingroup  CMSIS_core_register
  606:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \defgroup CMSIS_CoreDebug       Core Debug Registers (CoreDebug)
  607:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \brief    Cortex-M0+ Core Debug Registers (DCB registers, SHCSR, and DFSR) are only accessible ov
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 36
-
-
  608:mcu-bsp/CMSIS/Include/core_cm0plus.h ****             Therefore they are not covered by the Cortex-M0+ header file.
  609:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   @{
  610:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  611:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /*@} end of group CMSIS_CoreDebug */
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 36
+
+
  612:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  613:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  614:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /**
@@ -2158,13 +2154,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  662:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /*@} */
  663:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  664:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 37
-
-
  665:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  666:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /*******************************************************************************
  667:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  *                Hardware Abstraction Layer
  668:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   Core Function Interface contains:
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 37
+
+
  669:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core NVIC Functions
  670:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core SysTick Functions
  671:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   - Core Register Access Functions
@@ -2218,13 +2214,13 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  719:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  720:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* The following EXC_RETURN values are saved the LR on exception entry */
  721:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define EXC_RETURN_HANDLER         (0xFFFFFFF1UL)     /* return to Handler mode, uses MSP after ret
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 38
-
-
  722:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define EXC_RETURN_THREAD_MSP      (0xFFFFFFF9UL)     /* return to Thread mode, uses MSP after retu
  723:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define EXC_RETURN_THREAD_PSP      (0xFFFFFFFDUL)     /* return to Thread mode, uses PSP after retu
  724:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
  725:mcu-bsp/CMSIS/Include/core_cm0plus.h **** 
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 38
+
+
  726:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* Interrupt Priorities are WORD accessible only under Armv6-M                  */
  727:mcu-bsp/CMSIS/Include/core_cm0plus.h **** /* The following MACROS handle generation of the register offset and byte masks */
  728:mcu-bsp/CMSIS/Include/core_cm0plus.h **** #define _BIT_SHIFT(IRQn)         (  ((((uint32_t)(int32_t)(IRQn))         )      &  0x03UL) * 8UL)
@@ -2241,181 +2237,174 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 1
  739:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   \note    IRQn must not be negative.
  740:mcu-bsp/CMSIS/Include/core_cm0plus.h ****  */
  741:mcu-bsp/CMSIS/Include/core_cm0plus.h **** __STATIC_INLINE void __NVIC_EnableIRQ(IRQn_Type IRQn)
- 698              		.loc 3 741 22 view .LVU190
- 699              	.LBB13:
+ 694              		.loc 3 741 22 view .LVU190
+ 695              	.LBB13:
  742:mcu-bsp/CMSIS/Include/core_cm0plus.h **** {
  743:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   if ((int32_t)(IRQn) >= 0)
- 700              		.loc 3 743 3 view .LVU191
+ 696              		.loc 3 743 3 view .LVU191
  744:mcu-bsp/CMSIS/Include/core_cm0plus.h ****   {
  745:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
- 701              		.loc 3 745 5 view .LVU192
+ 697              		.loc 3 745 5 view .LVU192
  746:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     NVIC->ISER[0U] = (uint32_t)(1UL << (((uint32_t)IRQn) & 0x1FUL));
- 702              		.loc 3 746 5 view .LVU193
- 703              		.loc 3 746 20 is_stmt 0 view .LVU194
- 704 002a 084B     		ldr	r3, .L35+4
- 705 002c 8022     		movs	r2, #128
- 706 002e 9205     		lsls	r2, r2, #22
- 707 0030 1A60     		str	r2, [r3]
+ 698              		.loc 3 746 5 view .LVU193
+ 699              		.loc 3 746 20 is_stmt 0 view .LVU194
+ 700 0026 064B     		ldr	r3, .L35+4
+ 701 0028 8022     		movs	r2, #128
+ 702 002a 9205     		lsls	r2, r2, #22
+ 703 002c 1A60     		str	r2, [r3]
  747:mcu-bsp/CMSIS/Include/core_cm0plus.h ****     __COMPILER_BARRIER();
- 708              		.loc 3 747 5 is_stmt 1 view .LVU195
- 709              	.LVL30:
- 710              		.loc 3 747 5 is_stmt 0 view .LVU196
- 711              	.LBE13:
- 712              	.LBE12:
+ 704              		.loc 3 747 5 is_stmt 1 view .LVU195
+ 705              	.LVL30:
+ 706              		.loc 3 747 5 is_stmt 0 view .LVU196
+ 707              	.LBE13:
+ 708              	.LBE12:
  109:src/main.c    ****   uint8_t fakeBuffer[1];
- 713              		.loc 1 109 3 is_stmt 1 view .LVU197
+ 709              		.loc 1 109 3 is_stmt 1 view .LVU197
  109:src/main.c    ****   uint8_t fakeBuffer[1];
- 714              		.loc 1 109 16 is_stmt 0 view .LVU198
- 715 0032 074A     		ldr	r2, .L35+8
- 716 0034 1368     		ldr	r3, [r2]
- 717 0036 2021     		movs	r1, #32
- 718 0038 0B43     		orrs	r3, r1
- 719 003a 1360     		str	r3, [r2]
- 110:src/main.c    ****   VICCOM_send(&state, fakeBuffer, 2);
- 720              		.loc 1 110 3 is_stmt 1 view .LVU199
- 111:src/main.c    **** 
- 721              		.loc 1 111 3 view .LVU200
- 722 003c 0222     		movs	r2, #2
- 723 003e 01A9     		add	r1, sp, #4
- 724 0040 2000     		movs	r0, r4
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 39
-
-
- 725 0042 FFF7FEFF 		bl	VICCOM_send
- 726              	.LVL31:
- 727              	.L34:
+ 710              		.loc 1 109 16 is_stmt 0 view .LVU198
+ 711 002e 054A     		ldr	r2, .L35+8
+ 712 0030 1368     		ldr	r3, [r2]
+ 713 0032 2021     		movs	r1, #32
+ 714 0034 0B43     		orrs	r3, r1
+ 715 0036 1360     		str	r3, [r2]
+ 716              	.L34:
+ 110:src/main.c    ****   // VICCOM_send(&state, fakeBuffer, 2);
+ 717              		.loc 1 110 3 is_stmt 1 discriminator 1 view .LVU199
  117:src/main.c    ****   {
- 728              		.loc 1 117 3 discriminator 1 view .LVU201
+ 718              		.loc 1 117 3 discriminator 1 view .LVU200
  123:src/main.c    ****   /* USER CODE END 3 */
- 729              		.loc 1 123 3 discriminator 1 view .LVU202
+ 719              		.loc 1 123 3 discriminator 1 view .LVU201
  117:src/main.c    ****   {
- 730              		.loc 1 117 9 discriminator 1 view .LVU203
- 731 0046 FEE7     		b	.L34
- 732              	.L36:
- 733              		.align	2
- 734              	.L35:
- 735 0048 00000000 		.word	.LANCHOR2
- 736 004c 00E100E0 		.word	-536813312
- 737 0050 00480040 		.word	1073760256
- 738              		.cfi_endproc
- 739              	.LFE42:
- 741              		.global	state
- 742              		.global	hspi1
- 743              		.global	hdma_lpuart1_tx
- 744              		.global	hdma_lpuart1_rx
- 745              		.global	hlpuart1
- 746              		.global	hcrc
- 747              		.section	.bss.hcrc,"aw",%nobits
- 748              		.align	2
- 749              		.set	.LANCHOR0,. + 0
- 752              	hcrc:
- 753 0000 00000000 		.space	36
- 753      00000000 
- 753      00000000 
- 753      00000000 
- 753      00000000 
- 754              		.section	.bss.hdma_lpuart1_rx,"aw",%nobits
- 755              		.align	2
- 758              	hdma_lpuart1_rx:
- 759 0000 00000000 		.space	72
- 759      00000000 
- 759      00000000 
- 759      00000000 
- 759      00000000 
- 760              		.section	.bss.hdma_lpuart1_tx,"aw",%nobits
- 761              		.align	2
- 764              	hdma_lpuart1_tx:
- 765 0000 00000000 		.space	72
- 765      00000000 
- 765      00000000 
- 765      00000000 
- 765      00000000 
- 766              		.section	.bss.hlpuart1,"aw",%nobits
- 767              		.align	2
- 770              	hlpuart1:
- 771 0000 00000000 		.space	132
- 771      00000000 
- 771      00000000 
- 771      00000000 
- 771      00000000 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 40
+ 720              		.loc 1 117 9 discriminator 1 view .LVU202
+ 721 0038 FEE7     		b	.L34
+ 722              	.L36:
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 39
 
 
- 772              		.section	.bss.hspi1,"aw",%nobits
- 773              		.align	2
- 774              		.set	.LANCHOR1,. + 0
- 777              	hspi1:
- 778 0000 00000000 		.space	88
- 778      00000000 
- 778      00000000 
- 778      00000000 
- 778      00000000 
- 779              		.section	.bss.state,"aw",%nobits
- 780              		.align	2
- 781              		.set	.LANCHOR2,. + 0
- 784              	state:
- 785 0000 00000000 		.space	20
- 785      00000000 
- 785      00000000 
- 785      00000000 
- 785      00000000 
- 786              		.text
- 787              	.Letext0:
- 788              		.file 4 "mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h"
- 789              		.file 5 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 790              		.file 6 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
- 791              		.file 7 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_def.h"
- 792              		.file 8 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_rcc.h"
- 793              		.file 9 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_rcc_ex.h"
- 794              		.file 10 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_gpio.h"
- 795              		.file 11 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_dma.h"
- 796              		.file 12 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_crc.h"
- 797              		.file 13 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_spi.h"
- 798              		.file 14 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart.h"
- 799              		.file 15 "src/../mcu-bsp/lib/inc/viccom.h"
- 800              		.file 16 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_cortex.h"
- 801              		.file 17 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal.h"
- 802              		.file 18 "<built-in>"
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s 			page 41
+ 723 003a C046     		.align	2
+ 724              	.L35:
+ 725 003c 00000000 		.word	.LANCHOR2
+ 726 0040 00E100E0 		.word	-536813312
+ 727 0044 00480040 		.word	1073760256
+ 728              		.cfi_endproc
+ 729              	.LFE42:
+ 731              		.global	state
+ 732              		.global	hspi1
+ 733              		.global	hdma_lpuart1_tx
+ 734              		.global	hdma_lpuart1_rx
+ 735              		.global	hlpuart1
+ 736              		.global	hcrc
+ 737              		.section	.bss.hcrc,"aw",%nobits
+ 738              		.align	2
+ 739              		.set	.LANCHOR0,. + 0
+ 742              	hcrc:
+ 743 0000 00000000 		.space	36
+ 743      00000000 
+ 743      00000000 
+ 743      00000000 
+ 743      00000000 
+ 744              		.section	.bss.hdma_lpuart1_rx,"aw",%nobits
+ 745              		.align	2
+ 748              	hdma_lpuart1_rx:
+ 749 0000 00000000 		.space	72
+ 749      00000000 
+ 749      00000000 
+ 749      00000000 
+ 749      00000000 
+ 750              		.section	.bss.hdma_lpuart1_tx,"aw",%nobits
+ 751              		.align	2
+ 754              	hdma_lpuart1_tx:
+ 755 0000 00000000 		.space	72
+ 755      00000000 
+ 755      00000000 
+ 755      00000000 
+ 755      00000000 
+ 756              		.section	.bss.hlpuart1,"aw",%nobits
+ 757              		.align	2
+ 760              	hlpuart1:
+ 761 0000 00000000 		.space	132
+ 761      00000000 
+ 761      00000000 
+ 761      00000000 
+ 761      00000000 
+ 762              		.section	.bss.hspi1,"aw",%nobits
+ 763              		.align	2
+ 764              		.set	.LANCHOR1,. + 0
+ 767              	hspi1:
+ 768 0000 00000000 		.space	88
+ 768      00000000 
+ 768      00000000 
+ 768      00000000 
+ 768      00000000 
+ 769              		.section	.bss.state,"aw",%nobits
+ 770              		.align	2
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 40
+
+
+ 771              		.set	.LANCHOR2,. + 0
+ 774              	state:
+ 775 0000 00000000 		.space	20
+ 775      00000000 
+ 775      00000000 
+ 775      00000000 
+ 775      00000000 
+ 776              		.text
+ 777              	.Letext0:
+ 778              		.file 4 "mcu-bsp/CMSIS/Device/ST/STM32L0xx/Include/stm32l011xx.h"
+ 779              		.file 5 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 780              		.file 6 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
+ 781              		.file 7 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_def.h"
+ 782              		.file 8 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_rcc.h"
+ 783              		.file 9 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_rcc_ex.h"
+ 784              		.file 10 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_gpio.h"
+ 785              		.file 11 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_dma.h"
+ 786              		.file 12 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_crc.h"
+ 787              		.file 13 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_spi.h"
+ 788              		.file 14 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_uart.h"
+ 789              		.file 15 "src/../mcu-bsp/lib/inc/viccom.h"
+ 790              		.file 16 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal_cortex.h"
+ 791              		.file 17 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal.h"
+ 792              		.file 18 "<built-in>"
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s 			page 41
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main.c
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:16     .text.MX_GPIO_Init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:23     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:166    .text.MX_GPIO_Init:00000094 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:172    .text.MX_DMA_Init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:178    .text.MX_DMA_Init:00000000 MX_DMA_Init
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:225    .text.MX_DMA_Init:0000002c $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:230    .text.Error_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:237    .text.Error_Handler:00000000 Error_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:269    .text.MX_CRC_Init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:275    .text.MX_CRC_Init:00000000 MX_CRC_Init
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:325    .text.MX_CRC_Init:00000024 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:331    .text.MX_LPUART1_UART_Init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:337    .text.MX_LPUART1_UART_Init:00000000 MX_LPUART1_UART_Init
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:399    .text.MX_LPUART1_UART_Init:00000030 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:770    .bss.hlpuart1:00000000 hlpuart1
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:406    .text.MX_SPI1_Init:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:412    .text.MX_SPI1_Init:00000000 MX_SPI1_Init
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:484    .text.MX_SPI1_Init:00000038 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:490    .text.SystemClock_Config:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:497    .text.SystemClock_Config:00000000 SystemClock_Config
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:639    .text.SystemClock_Config:00000098 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:645    .text.main:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:652    .text.main:00000000 main
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:735    .text.main:00000048 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:784    .bss.state:00000000 state
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:777    .bss.hspi1:00000000 hspi1
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:764    .bss.hdma_lpuart1_tx:00000000 hdma_lpuart1_tx
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:758    .bss.hdma_lpuart1_rx:00000000 hdma_lpuart1_rx
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:752    .bss.hcrc:00000000 hcrc
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:748    .bss.hcrc:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:755    .bss.hdma_lpuart1_rx:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:761    .bss.hdma_lpuart1_tx:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:767    .bss.hlpuart1:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:773    .bss.hspi1:00000000 $d
-C:\Users\vic_user\AppData\Local\Temp\ccH54D3G.s:780    .bss.state:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:16     .text.MX_GPIO_Init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:23     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:166    .text.MX_GPIO_Init:00000094 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:172    .text.MX_DMA_Init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:178    .text.MX_DMA_Init:00000000 MX_DMA_Init
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:225    .text.MX_DMA_Init:0000002c $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:230    .text.Error_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:237    .text.Error_Handler:00000000 Error_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:269    .text.MX_CRC_Init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:275    .text.MX_CRC_Init:00000000 MX_CRC_Init
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:325    .text.MX_CRC_Init:00000024 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:331    .text.MX_LPUART1_UART_Init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:337    .text.MX_LPUART1_UART_Init:00000000 MX_LPUART1_UART_Init
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:399    .text.MX_LPUART1_UART_Init:00000030 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:760    .bss.hlpuart1:00000000 hlpuart1
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:406    .text.MX_SPI1_Init:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:412    .text.MX_SPI1_Init:00000000 MX_SPI1_Init
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:484    .text.MX_SPI1_Init:00000038 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:490    .text.SystemClock_Config:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:497    .text.SystemClock_Config:00000000 SystemClock_Config
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:639    .text.SystemClock_Config:00000098 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:645    .text.main:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:652    .text.main:00000000 main
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:725    .text.main:0000003c $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:774    .bss.state:00000000 state
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:767    .bss.hspi1:00000000 hspi1
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:754    .bss.hdma_lpuart1_tx:00000000 hdma_lpuart1_tx
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:748    .bss.hdma_lpuart1_rx:00000000 hdma_lpuart1_rx
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:742    .bss.hcrc:00000000 hcrc
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:738    .bss.hcrc:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:745    .bss.hdma_lpuart1_rx:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:751    .bss.hdma_lpuart1_tx:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:757    .bss.hlpuart1:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:763    .bss.hspi1:00000000 $d
+C:\Users\vic_user\AppData\Local\Temp\ccTPIc0R.s:770    .bss.state:00000000 $d
 
 UNDEFINED SYMBOLS
 memset
@@ -2431,4 +2420,3 @@ HAL_RCC_ClockConfig
 HAL_RCCEx_PeriphCLKConfig
 HAL_Init
 VICCOM_stm_init
-VICCOM_send

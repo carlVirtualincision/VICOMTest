@@ -104,11 +104,11 @@ int main(void)
   MX_LPUART1_UART_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  VICCOM_stm_init(&state, 2);
+  VICCOM_stm_init(&state, 4);
   NVIC_EnableIRQ(LPUART1_IRQn);
   LPUART1->CR1 |= USART_CR1_RXNEIE;
   uint8_t fakeBuffer[1];
-  VICCOM_send(&state, fakeBuffer, 2);
+  // VICCOM_send(&state, fakeBuffer, 2);
 
   /* USER CODE END 2 */
 
