@@ -1,4 +1,4 @@
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 1
 
 
    1              		.cpu cortex-m0plus
@@ -58,7 +58,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
   30:src/stm32l0xx_it.c **** 
   31:src/stm32l0xx_it.c **** /* USER CODE END TD */
   32:src/stm32l0xx_it.c **** 
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 2
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 2
 
 
   33:src/stm32l0xx_it.c **** /* Private define ------------------------------------------------------------*/
@@ -118,7 +118,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
   35              		.loc 1 78 3 discriminator 1 view .LVU2
   76:src/stm32l0xx_it.c ****   {
   36              		.loc 1 76 9 discriminator 1 view .LVU3
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 3
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 3
 
 
   37 0000 FEE7     		b	.L2
@@ -178,7 +178,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
   98:src/stm32l0xx_it.c ****   * @brief This function handles System service call via SWI instruction.
   99:src/stm32l0xx_it.c ****   */
  100:src/stm32l0xx_it.c **** void SVC_Handler(void)
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 4
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 4
 
 
  101:src/stm32l0xx_it.c **** {
@@ -238,7 +238,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
  111              		.code	16
  112              		.thumb_func
  113              		.fpu softvfp
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 5
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 5
 
 
  115              	SysTick_Handler:
@@ -298,7 +298,7 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
  148:src/stm32l0xx_it.c **** void LPUART1_IRQHandler(void)
  149:src/stm32l0xx_it.c **** {
  145              		.loc 1 149 1 is_stmt 1 view -0
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 6
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 6
 
 
  146              		.cfi_startproc
@@ -335,24 +335,24 @@ ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 1
  172              		.file 3 "c:\\programdata\\chocolatey\\lib\\gcc-arm-embedded\\tools\\gcc-arm-none-eabi-10-2020-q4-m
  173              		.file 4 "src/../mcu-bsp/lib/inc/viccom.h"
  174              		.file 5 "mcu-bsp/peripherals/stm32l0xx/inc/stm32l0xx_hal.h"
-ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s 			page 7
+ARM GAS  C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 stm32l0xx_it.c
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:16     .text.NMI_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:24     .text.NMI_Handler:00000000 NMI_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:42     .text.HardFault_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:49     .text.HardFault_Handler:00000000 HardFault_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:66     .text.SVC_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:73     .text.SVC_Handler:00000000 SVC_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:87     .text.PendSV_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:94     .text.PendSV_Handler:00000000 PendSV_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:108    .text.SysTick_Handler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:115    .text.SysTick_Handler:00000000 SysTick_Handler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:136    .text.LPUART1_IRQHandler:00000000 $t
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:143    .text.LPUART1_IRQHandler:00000000 LPUART1_IRQHandler
-C:\Users\vic_user\AppData\Local\Temp\ccePpaHC.s:165    .text.LPUART1_IRQHandler:0000000c $d
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:16     .text.NMI_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:24     .text.NMI_Handler:00000000 NMI_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:42     .text.HardFault_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:49     .text.HardFault_Handler:00000000 HardFault_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:66     .text.SVC_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:73     .text.SVC_Handler:00000000 SVC_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:87     .text.PendSV_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:94     .text.PendSV_Handler:00000000 PendSV_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:108    .text.SysTick_Handler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:115    .text.SysTick_Handler:00000000 SysTick_Handler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:136    .text.LPUART1_IRQHandler:00000000 $t
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:143    .text.LPUART1_IRQHandler:00000000 LPUART1_IRQHandler
+C:\Users\vic_user\AppData\Local\Temp\ccmBr62c.s:165    .text.LPUART1_IRQHandler:0000000c $d
 
 UNDEFINED SYMBOLS
 HAL_IncTick

@@ -71,7 +71,6 @@ static void MX_SPI1_Init(void);
 viccom_t state;
 
 /* USER CODE END 0 */
-
 /**
   * @brief  The application entry point.
   * @retval int
@@ -108,6 +107,8 @@ int main(void)
   VICCOM_stm_init(&state, 2);
   NVIC_EnableIRQ(LPUART1_IRQn);
   LPUART1->CR1 |= USART_CR1_RXNEIE;
+  uint8_t fakeBuffer[1];
+  VICCOM_send(&state, fakeBuffer, 2);
 
   /* USER CODE END 2 */
 
@@ -227,6 +228,7 @@ static void MX_LPUART1_UART_Init(void)
   hlpuart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
   hlpuart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
   hlpuart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  //enable transmission complete interrupt
   if (HAL_UART_Init(&hlpuart1) != HAL_OK)
   {
     Error_Handler();
